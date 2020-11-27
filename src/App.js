@@ -1,11 +1,19 @@
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
 
-function App() {
+import Header from './containers/header/header.container';
+import HomePage from './pages/home-page/home-page.component';
+
+import { AppContainer } from './App.styles';
+
+const App = () => {
 	return (
-		<div className='App'>
-			<h1>Hello world</h1>
-		</div>
+		<AppContainer>
+			<Header />
+			<Switch>
+				<Route exact path='/' component={HomePage} />
+			</Switch>
+		</AppContainer>
 	);
-}
+};
 
 export default App;

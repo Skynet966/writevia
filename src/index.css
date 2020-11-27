@@ -5,7 +5,12 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: crimson;
+	transition: color 0.2s linear;
 }
