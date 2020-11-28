@@ -2,13 +2,16 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { hideSearchbar } from '../../redux/app/app.actions';
+import { setSearchText } from '../../redux/app/app.actions';
 
-import { selectShowSearchbar } from '../../redux/app/app.selectors';
+import {
+	selectSearchText,
+	selectShowSearchbar
+} from '../../redux/app/app.selectors';
 
 import { InputBox, Search, SearchBarContainer } from './search-bar.styles';
 
-const SearchBar = ({ show, hideSearch }) => {
+const SearchBar = ({ show, searchText, setSearchTextValue }) => {
 	useEffect(() => {
 		if (show) document.getElementById('searchInputBox').focus();
 	});
@@ -21,7 +24,8 @@ const SearchBar = ({ show, hideSearch }) => {
 					onSubmit={e => e.defaultPrevented()}
 					placeholder='Search...'
 					autoFocus={show}
-					// onBlur={hideSearch}
+					value={searchText ? searchText : ''}
+					onChange={e => setSearchTextValue(e.target.value)}
 				/>
 			</Search>
 		</SearchBarContainer>
@@ -29,11 +33,12 @@ const SearchBar = ({ show, hideSearch }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-	show: selectShowSearchbar
+	show: selectShowSearchbar,
+	searchText: selectSearchText
 });
 
 const mapDispatchToProps = dispatch => ({
-	hideSearch: () => dispatch(hideSearchbar())
+	setSearchTextValue: text => dispatch(setSearchText(text))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

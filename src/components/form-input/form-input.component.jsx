@@ -2,6 +2,8 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import { generateUUID } from '../../utils/utils.functions';
+
 export const FormInputContainer = styled.div`
 	margin: 0 0 20px;
 `;
@@ -28,7 +30,7 @@ const FormInput = ({
 	label,
 	...otherProps
 }) => {
-	const uid = `${Date.now()}`;
+	const uid = generateUUID();
 	return (
 		<FormInputContainer>
 			{label ? <Label htmlFor={uid}>{label}</Label> : ''}

@@ -6,3 +6,8 @@ export const selectShowSearchbar = createSelector(
 	[selectApp],
 	app => app.showSearchbar
 );
+
+export const selectSearchText = createSelector(
+	[selectApp],
+	app => app.searchText
+);
