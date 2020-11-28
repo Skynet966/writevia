@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors, size } from '../../assets/base-config/base-config.styles';
+import { size } from '../../assets/base-config/base-config.styles';
 
 export const DescriptionCardContainer = styled.div`
 	margin: 20px 10px;
@@ -21,7 +21,7 @@ export const CardTitle = styled.h3`
 export const LineFx = styled.div`
 	height: 2px;
 	width: 100%;
-	background: ${colors.Grey1};
+	background: ${props => props.theme.Grey1};
 `;
 export const CardBodyContainer = styled.div`
 	display: flex;

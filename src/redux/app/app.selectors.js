@@ -11,3 +11,5 @@ export const selectSearchText = createSelector(
 	[selectApp],
 	app => app.searchText
 );
+
+export const selectTheme = createSelector([selectApp], app => app.theme);

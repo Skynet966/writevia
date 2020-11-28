@@ -3,7 +3,6 @@ import React from 'react';
 import DescriptionCard from '../description-card/description-card.component';
 
 import styled, { keyframes } from 'styled-components';
-import { colors } from '../../assets/base-config/base-config.styles';
 
 export const CallAnimation = keyframes`
 	0%
@@ -36,7 +35,7 @@ export const IconatedInfoLinkContainer = styled.div`
 export const InfoHeader = styled.div``;
 export const Heading = styled.h4`
 	margin-top: 0;
-	color: ${colors.Muted};
+	color: ${props => props.theme.Muted};
 	font-weight: 500;
 `;
 export const InfoItemList = styled.ul`
@@ -53,7 +52,7 @@ export const Link = styled.a`
 	align-self: center;
 	transition: color 0.3s linear;
 	${InfoListItem}:hover & {
-		color: ${colors.Primary};
+		color: ${props => props.theme.Primary};
 	}
 `;
 export const Icon = styled.i`
@@ -70,8 +69,8 @@ export const Icon = styled.i`
 	transition: box-shadow 0.3s linear;
 	margin-right: 10px;
 	${InfoListItem}:hover & {
-		color: ${colors.Primary};
-		box-shadow: 0 0 5px ${colors.Primary};
+		color: ${props => props.theme.White};
+		box-shadow: 0 0 5px ${props => props.theme.Primary};
 		animation: ${CallAnimation} 1s linear infinite;
 	}
 `;

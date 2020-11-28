@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-import { colors, size } from '../../assets/base-config/base-config.styles';
+import { size } from '../../assets/base-config/base-config.styles';
 
 export const SearchBarContainer = styled.div`
 	position: absolute;
 	width: 100%;
 	z-index: -1;
-	background: ${colors.White};
+	background: ${props => props.theme.White};
 	display: flex;
 	place-content: center;
 	transform: translateY(${props => (props.show ? 0 : -110)}%);
@@ -25,13 +25,13 @@ export const InputBox = styled.input`
 	border: none;
 	outline: none;
 	width: 50vw;
-	caret-color: ${colors.Grey2};
+	caret-color: ${props => props.theme.Grey2};
 	padding: 5px;
 	border-radius: 20px 20px;
-	box-shadow: inset 0 0 20px ${colors.Grey1};
+	box-shadow: inset 0 0 20px ${props => props.theme.Grey1};
 	&::placeholder {
 		font-weight: 700;
-		color: ${colors.Grey2};
+		color: ${props => props.theme.Grey2};
 	}
 	@media (max-width: ${size.sm}) {
 		width: 90vw;

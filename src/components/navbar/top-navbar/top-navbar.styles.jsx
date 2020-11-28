@@ -1,14 +1,14 @@
 import styled from 'styled-components';
-import { colors, size } from '../../../assets/base-config/base-config.styles';
+import { size } from '../../../assets/base-config/base-config.styles';
 
 export const TopNavbarContainer = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	background: ${colors.White};
+	background: ${props => props.theme.White};
 	justify-content: space-around;
-	border-bottom: 1px solid ${colors.Grey1};
+	border-bottom: 1px solid ${props => props.theme.Grey1};
 	@media (max-width: ${size.sm}) {
 		justify-content: space-between;
 		padding: 0 10px;
@@ -30,7 +30,7 @@ export const SocialMediaContainer = styled.div`
 export const SocialMediaIcon = styled.span`
 	font-size: 1.1em;
 	&:hover {
-		color: ${colors.Primary};
+		color: ${props => props.theme.Primary};
 	}
 `;
 
@@ -63,7 +63,7 @@ export const MenuItemsContainer = styled.div`
 export const MenuItem = styled.span`
 	font-size: 1.1em;
 	&:hover {
-		color: ${colors.Primary};
+		color: ${props => props.theme.Primary};
 	}
 	&:last-of-type {
 		@media (min-width: ${size.md}) {

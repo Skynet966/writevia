@@ -3,13 +3,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
-import { ThemeProvider } from 'styled-components';
 
 import { store, persistor } from './redux/store';
 
-import './index.css';
-
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -17,9 +15,7 @@ ReactDOM.render(
 		<Provider store={store}>
 			<BrowserRouter>
 				<PersistGate persistor={persistor}>
-					<ThemeProvider theme={{ main: 'red' }}>
-						<App />
-					</ThemeProvider>
+					<App />
 				</PersistGate>
 			</BrowserRouter>
 		</Provider>

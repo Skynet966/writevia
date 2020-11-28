@@ -1,7 +1,7 @@
 import { keyframes } from 'styled-components';
 
 //Colors Scheme
-export const colors = {
+export const light_theme = {
 	//Basic colors
 	Body: '#505050',
 	Headers: '#11151c',
@@ -14,7 +14,26 @@ export const colors = {
 	White: '#ffffff',
 	Black: '#000000',
 	Muted: '#6c757d',
+	light: true
+};
 
+export const dark_theme = {
+	//Basic colors
+	Body: '#505050',
+	Headers: '#11151c',
+	Primary: '#ee4266',
+	Secondary: '#353535',
+	Dark: '#1b1c1e',
+	Grey1: '#e8eaed',
+	Grey2: '#97989b',
+	Grey3: '#323335',
+	White: '#000000',
+	Black: '#ffffff',
+	Muted: '#6c757d',
+	light: false
+};
+
+export const social = {
 	//message colors
 	Success: '#28a745',
 	Error: '#dc3545',
@@ -30,7 +49,6 @@ export const colors = {
 	wa: '#25d366',
 	yt: '#ff0000'
 };
-
 //screen width
 export const size = {
 	xl: '1200px',

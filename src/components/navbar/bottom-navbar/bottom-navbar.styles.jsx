@@ -1,18 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import {
-	fadeIn,
-	colors,
-	size
-} from '../../../assets/base-config/base-config.styles';
+import { fadeIn, size } from '../../../assets/base-config/base-config.styles';
 
 export const BottomNavbarContainer = styled.div`
 	display: flex;
-	background: ${colors.White};
+	background: ${props => props.theme.White};
 	align-content: center;
 	align-items: center;
-	border-bottom: 1px solid ${colors.Grey1};
+	border-bottom: 1px solid ${props => props.theme.Grey1};
 	transition: transform 1s linear;
 	@media (max-width: ${size.sm}) {
 		display: none;
@@ -28,9 +24,6 @@ export const NavLinksContainer = styled.ul`
 	list-style: none;
 	padding: 0 10px;
 	transition: all 1.5s linear;
-	/* @media (max-width: ${size.sm}) {
-		
-	} */
 `;
 export const NavLinks = styled.li`
 	font-weight: 600;

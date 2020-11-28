@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-import { colors, size } from '../../assets/base-config/base-config.styles';
+import { size } from '../../assets/base-config/base-config.styles';
 
 export const PageHeaderContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	padding: 120px 0 80px;
-	background: ${colors.Dark};
-	color: ${colors.White};
+	background: ${props => props.theme.Dark};
+	color: ${props => props.theme.White};
 `;
 export const HeadingContainer = styled.div`
 	padding: 0 50px;

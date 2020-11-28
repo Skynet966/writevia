@@ -10,3 +10,6 @@ export const setSearchText = text => ({
 	type: AppActionTypes.SET_SEARCH_TEXT,
 	payload: text
 });
+export const toggleTheme = () => ({
+	type: AppActionTypes.TOGGLE_THEME
+});
