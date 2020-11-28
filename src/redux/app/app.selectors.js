@@ -13,3 +13,8 @@ export const selectSearchText = createSelector(
 );
 
 export const selectTheme = createSelector([selectApp], app => app.theme);
+
+export const selectThemeMode = createSelector(
+	[selectTheme],
+	theme => theme.light
+);

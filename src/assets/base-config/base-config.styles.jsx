@@ -4,7 +4,7 @@ import { keyframes } from 'styled-components';
 export const light_theme = {
 	//Basic colors
 	Body: '#505050',
-	Headers: '#11151c',
+	Headers: '#ffffff',
 	Primary: '#ee4266',
 	Secondary: '#353535',
 	Dark: '#1b1c1e',
@@ -20,14 +20,14 @@ export const light_theme = {
 export const dark_theme = {
 	//Basic colors
 	Body: '#505050',
-	Headers: '#11151c',
+	Headers: '#1e1e30',
 	Primary: '#ee4266',
 	Secondary: '#353535',
-	Dark: '#1b1c1e',
-	Grey1: '#e8eaed',
+	Dark: '#1e1e30',
+	Grey1: '#25253d',
 	Grey2: '#97989b',
 	Grey3: '#323335',
-	White: '#000000',
+	White: '#161625',
 	Black: '#ffffff',
 	Muted: '#6c757d',
 	light: false

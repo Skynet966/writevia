@@ -5,7 +5,7 @@ import { fadeIn, size } from '../../../assets/base-config/base-config.styles';
 
 export const BottomNavbarContainer = styled.div`
 	display: flex;
-	background: ${props => props.theme.White};
+	background: ${props => props.theme.Headers};
 	align-content: center;
 	align-items: center;
 	border-bottom: 1px solid ${props => props.theme.Grey1};
@@ -31,5 +31,7 @@ export const NavLinks = styled.li`
 `;
 
 export const NavLinkItem = styled(NavLink)`
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
 	outline: none;
 `;

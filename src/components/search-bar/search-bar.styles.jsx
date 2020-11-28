@@ -6,7 +6,7 @@ export const SearchBarContainer = styled.div`
 	position: absolute;
 	width: 100%;
 	z-index: -1;
-	background: ${props => props.theme.White};
+	background: ${props => props.theme.Headers};
 	display: flex;
 	place-content: center;
 	transform: translateY(${props => (props.show ? 0 : -110)}%);

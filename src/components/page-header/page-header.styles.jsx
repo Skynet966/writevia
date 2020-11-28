@@ -17,18 +17,18 @@ export const HeadingContainer = styled.div`
 `;
 export const Heading = styled.h1`
 	text-transform: uppercase;
+	text-shadow: 0 0 10px #000;
 	font-size: 2.5em;
 	font-weight: 700;
-	margin: 0 0 10px;
-	text-shadow: 0 0 10px #000;
+	color: White;
 	@media (max-width: ${size.sm}) {
 		font-size: 2em;
 	}
 `;
 export const SubHeading = styled.h2`
-	font-weight: 400;
-	margin: 0 0 5px;
-	line-height: 30px;
+	font-size: 1.5em;
+	font-weight: 500;
+	color: white;
 	text-shadow: 0 0 10px #000;
 	@media (max-width: ${size.sm}) {
 		font-size: 1em;

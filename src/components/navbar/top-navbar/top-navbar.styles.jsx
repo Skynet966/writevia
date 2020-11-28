@@ -6,7 +6,7 @@ export const TopNavbarContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	background: ${props => props.theme.White};
+	background: ${props => props.theme.Headers};
 	justify-content: space-around;
 	border-bottom: 1px solid ${props => props.theme.Grey1};
 	@media (max-width: ${size.sm}) {
@@ -29,9 +29,7 @@ export const SocialMediaContainer = styled.div`
 
 export const SocialMediaIcon = styled.span`
 	font-size: 1.1em;
-	&:hover {
-		color: ${props => props.theme.Primary};
-	}
+	color: ${props => props.theme.Black};
 `;
 
 export const LogoContainer = styled.div`
@@ -62,9 +60,9 @@ export const MenuItemsContainer = styled.div`
 
 export const MenuItem = styled.span`
 	font-size: 1.1em;
-	&:hover {
-		color: ${props => props.theme.Primary};
-	}
+	color: ${props => props.theme.Black};
+	border: 0;
+	border-radius: 50%;
 	&:last-of-type {
 		@media (min-width: ${size.md}) {
 			display: none;

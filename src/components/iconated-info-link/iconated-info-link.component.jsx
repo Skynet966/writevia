@@ -69,7 +69,6 @@ export const Icon = styled.i`
 	transition: box-shadow 0.3s linear;
 	margin-right: 10px;
 	${InfoListItem}:hover & {
-		color: ${props => props.theme.White};
 		box-shadow: 0 0 5px ${props => props.theme.Primary};
 		animation: ${CallAnimation} 1s linear infinite;
 	}

@@ -31,11 +31,13 @@ const GlobalStyle = createGlobalStyle`
     }
     body{
         font-family: 'Mulish', sans-serif;
+        background: ${props => props.theme.White} ;
         margin: 0;
         padding: 0;
         font-size: 16px;
         font-weight: 400;
         overflow-x:hidden;
+        transition: color 2s linear;
     }
     /* selection for text */
     ::selection{
@@ -46,6 +48,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
         margin: 0 0 15px;
+        color: ${props => props.theme.Black}
     }
     h1{
         font-size: 32px;
@@ -68,6 +71,7 @@ const GlobalStyle = createGlobalStyle`
 
     p{
         margin: 0 0 20px;
+        color: ${props => props.theme.Black}
     }
 
     a{
@@ -88,6 +92,14 @@ const GlobalStyle = createGlobalStyle`
     .active__link {
 	    color: ${props => props.theme.Primary};
 	    font-weight: 700;
+    }
+    .sun{
+        box-shadow: 0px 0px 20px 0px #ffe819;
+        background: #ffff0057;
+        color:#ffeb3b;
+    }
+    .moon{
+        color:#918e80;
     }
 `;
 

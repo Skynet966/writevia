@@ -2,8 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import { selectShowSearchbar } from '../../../redux/app/app.selectors';
-import { hideSearchbar, showSearchbar } from '../../../redux/app/app.actions';
+import {
+	selectShowSearchbar,
+	selectThemeMode
+} from '../../../redux/app/app.selectors';
+import {
+	hideSearchbar,
+	showSearchbar,
+	toggleTheme
+} from '../../../redux/app/app.actions';
 
 import {
 	TopNavbarContainer,
@@ -15,7 +22,7 @@ import {
 	MenuItem
 } from './top-navbar.styles';
 
-const TopNavbar = ({ show, showSearch, hideSearch }) => (
+const TopNavbar = ({ show, showSearch, hideSearch, mode, toggleTheme }) => (
 	<TopNavbarContainer>
 		<SocialMediaContainer>
 			<SocialMediaIcon className='fa fa-facebook' />
@@ -24,7 +31,9 @@ const TopNavbar = ({ show, showSearch, hideSearch }) => (
 		</SocialMediaContainer>
 		<LogoContainer>
 			<Logo
-				src='https://writevia.gumlet.io/img/logo/writevia_name_logo.png'
+				src={`https://writevia.gumlet.io/img/logo/writevia_name_logo${
+					mode ? '.png' : '_alt.png'
+				}`}
 				alt='writevia logo'
 			/>
 		</LogoContainer>
@@ -35,19 +44,25 @@ const TopNavbar = ({ show, showSearch, hideSearch }) => (
 				<MenuItem className='fa fa-search' onClick={showSearch} />
 			)}
 			<MenuItem className='fa fa-user' />
-			<MenuItem className='fa fa-moon-o' />
+			{mode ? (
+				<MenuItem className='fa fa-moon-o moon' onClick={toggleTheme} />
+			) : (
+				<MenuItem className='fa fa-sun-o sun' onClick={toggleTheme} />
+			)}
 			<MenuItem className='fa fa-bars' />
 		</MenuItemsContainer>
 	</TopNavbarContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
-	show: selectShowSearchbar
+	show: selectShowSearchbar,
+	mode: selectThemeMode
 });
 
 const mapDispatchToProps = dispatch => ({
 	showSearch: () => dispatch(showSearchbar()),
-	hideSearch: () => dispatch(hideSearchbar())
+	hideSearch: () => dispatch(hideSearchbar()),
+	toggleTheme: () => dispatch(toggleTheme())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopNavbar);
