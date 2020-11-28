@@ -12,7 +12,7 @@ export const SearchBarContainer = styled.div`
 	transform: translateY(${props => (props.show ? 0 : -110)}%);
 	box-shadow: 0 6px 4px -5px rgba(0, 0, 0, 0.7);
 	border-radius: 0px 0px 20px 20px;
-	transition: transform 0.8s linear;
+	transition: transform 0.8s ease-in-out;
 `;
 export const Search = styled.div`
 	padding: 15px;

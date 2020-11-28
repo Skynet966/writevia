@@ -28,16 +28,25 @@ export const SocialMediaContainer = styled.div`
 `;
 
 export const SocialMediaIcon = styled.span`
-	font-size: 1em;
+	font-size: 1.1em;
+	&:hover {
+		color: ${colors.Primary};
+	}
 `;
 
 export const LogoContainer = styled.div`
 	padding: 7px 0px;
 	width: fit-content;
+	@media (max-width: ${size.sm}) {
+		padding: 15px 0px;
+	}
 `;
 
 export const Logo = styled.img`
 	width: 160px;
+	@media (max-width: ${size.sm}) {
+		width: 120px;
+	}
 `;
 
 export const MenuItemsContainer = styled.div`
@@ -46,8 +55,19 @@ export const MenuItemsContainer = styled.div`
 	width: 100px;
 	align-items: center;
 	justify-content: space-between;
+	@media (max-width: ${size.sm}) {
+		width: 150px;
+	}
 `;
 
-export const MenuItem = styled.div`
-	font-size: 1em;
+export const MenuItem = styled.span`
+	font-size: 1.1em;
+	&:hover {
+		color: ${colors.Primary};
+	}
+	&:last-of-type {
+		@media (min-width: ${size.md}) {
+			display: none;
+		}
+	}
 `;

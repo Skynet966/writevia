@@ -12,5 +12,31 @@ a {
 
 a:hover {
 	color: crimson;
-	transition: color 0.2s linear;
+	transition: color 0.3s linear;
+}
+
+.active__link {
+	color: crimson;
+	font-weight: 700;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #e8eaed;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #97989b;
+	border-radius: 1em;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #323335;
 }

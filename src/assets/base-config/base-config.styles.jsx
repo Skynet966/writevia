@@ -13,6 +13,7 @@ export const colors = {
 	Grey3: '#323335',
 	White: '#ffffff',
 	Black: '#000000',
+	Muted: '#6c757d',
 
 	//message colors
 	Success: '#28a745',

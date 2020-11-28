@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
@@ -9,15 +9,19 @@ import { selectShowSearchbar } from '../../redux/app/app.selectors';
 import { InputBox, Search, SearchBarContainer } from './search-bar.styles';
 
 const SearchBar = ({ show, hideSearch }) => {
+	useEffect(() => {
+		if (show) document.getElementById('searchInputBox').focus();
+	});
 	return (
 		<SearchBarContainer show={show}>
 			<Search>
 				<InputBox
+					id='searchInputBox'
 					type='search'
 					onSubmit={e => e.defaultPrevented()}
 					placeholder='Search...'
 					autoFocus={show}
-					onBlur={hideSearch}
+					// onBlur={hideSearch}
 				/>
 			</Search>
 		</SearchBarContainer>

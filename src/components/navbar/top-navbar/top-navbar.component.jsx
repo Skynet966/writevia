@@ -29,19 +29,14 @@ const TopNavbar = ({ show, showSearch, hideSearch }) => (
 			/>
 		</LogoContainer>
 		<MenuItemsContainer>
-			<MenuItem>
-				{show ? (
-					<span className='fa fa-times' onClick={hideSearch} />
-				) : (
-					<span className='fa fa-search' onClick={showSearch} />
-				)}
-			</MenuItem>
-			<MenuItem>
-				<span className='fa fa-user' />
-			</MenuItem>
-			<MenuItem>
-				<span className='fa fa-bars' />
-			</MenuItem>
+			{show ? (
+				<MenuItem className='fa fa-times' onClick={hideSearch} />
+			) : (
+				<MenuItem className='fa fa-search' onClick={showSearch} />
+			)}
+			<MenuItem className='fa fa-user' />
+			<MenuItem className='fa fa-moon-o' />
+			<MenuItem className='fa fa-bars' />
 		</MenuItemsContainer>
 	</TopNavbarContainer>
 );

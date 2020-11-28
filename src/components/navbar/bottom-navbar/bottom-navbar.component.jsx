@@ -5,7 +5,7 @@ import {
 	NavLinksListContainer,
 	NavLinksContainer,
 	NavLinks,
-	NavLink
+	NavLinkItem
 } from './bottom-navbar.styles';
 
 const BottomNavbar = () => (
@@ -13,44 +13,29 @@ const BottomNavbar = () => (
 		<NavLinksListContainer>
 			<NavLinksContainer>
 				<NavLinks>
-					<NavLink
-						href='https://www.google.com'
-						onClick={e => e.preventDefault()}
-					>
+					<NavLinkItem exact activeClassName='active__link' to='/'>
 						HOME
-					</NavLink>
+					</NavLinkItem>
 				</NavLinks>
 				<NavLinks>
-					<NavLink
-						href='https://www.google.com'
-						onClick={e => e.preventDefault()}
-					>
+					<NavLinkItem activeClassName='active__link' to='/blogs'>
 						BLOGS
-					</NavLink>
+					</NavLinkItem>
 				</NavLinks>
 				<NavLinks>
-					<NavLink
-						href='https://www.google.com'
-						onClick={e => e.preventDefault()}
-					>
+					<NavLinkItem activeClassName='active__link' to='/contact-us'>
 						CONTACT US
-					</NavLink>
+					</NavLinkItem>
 				</NavLinks>
 				<NavLinks>
-					<NavLink
-						href='https://www.google.com'
-						onClick={e => e.preventDefault()}
-					>
+					<NavLinkItem activeClassName='active__link' to='/our-team'>
 						OUR TEAM
-					</NavLink>
+					</NavLinkItem>
 				</NavLinks>
 				<NavLinks>
-					<NavLink
-						href='https://www.google.com'
-						onClick={e => e.preventDefault()}
-					>
+					<NavLinkItem activeClassName='active__link' to='/about-us'>
 						ABOUT US
-					</NavLink>
+					</NavLinkItem>
 				</NavLinks>
 			</NavLinksContainer>
 		</NavLinksListContainer>

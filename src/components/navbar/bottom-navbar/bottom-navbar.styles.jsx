@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import {
@@ -12,6 +13,7 @@ export const BottomNavbarContainer = styled.div`
 	align-content: center;
 	align-items: center;
 	border-bottom: 1px solid ${colors.Grey1};
+	transition: transform 1s linear;
 	@media (max-width: ${size.sm}) {
 		display: none;
 	}
@@ -25,36 +27,16 @@ export const NavLinksContainer = styled.ul`
 	gap: 40px;
 	list-style: none;
 	padding: 0 10px;
+	transition: all 1.5s linear;
+	/* @media (max-width: ${size.sm}) {
+		
+	} */
 `;
 export const NavLinks = styled.li`
 	font-weight: 600;
 	animation: ${fadeIn} 1s linear;
 `;
 
-export const NavLink = styled.a`
+export const NavLinkItem = styled(NavLink)`
 	outline: none;
-	&::before,
-	::after {
-		display: inline-block;
-		opacity: 0;
-		transition: transform 0.3s, opacity 0.2s;
-	}
-	&::before {
-		content: '[';
-		margin-right: 10px;
-		transform: translateX(20px);
-	}
-	&::after {
-		content: ']';
-		margin-left: 10px;
-		transform: translateX(-20px);
-	}
-	&:hover,
-	:focus {
-		&::before,
-		::after {
-			opacity: 1;
-			transform: translateX(0);
-		}
-	}
 `;
