@@ -27,7 +27,6 @@ export const CardBodyContainer = styled.div`
 	display: flex;
 	@media (max-width: ${size.sm}) {
 		flex-direction: column;
-		align-items: left;
 	}
 `;
 export const CardImageContainer = styled.div`

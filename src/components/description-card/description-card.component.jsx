@@ -46,6 +46,8 @@ const DescriptionCard = ({
 						<CardImageContainer>
 							{indicatorEl}
 							<CardImage
+								width='100'
+								height='100'
 								onLoad={() => setloading(false)}
 								src={imageUrl}
 								alt={imageAlt}

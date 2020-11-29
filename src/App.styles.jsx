@@ -70,6 +70,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     p{
+        line-height: 22px;
         margin: 0 0 20px;
         color: ${props => props.theme.Black}
     }
@@ -86,6 +87,7 @@ const GlobalStyle = createGlobalStyle`
     //list styling
     ul,ol{
         padding:0;
+        margin: 16px 0;
         list-style: none;
     }
     //represent active state of the link
@@ -105,6 +107,10 @@ const GlobalStyle = createGlobalStyle`
         position: absolute;
         width: 100px;
         color: crimson;
+    }
+    .page__loading{
+        color: ${props => props.theme.Loader};
+        width:fit-content;
     }
 `;
 

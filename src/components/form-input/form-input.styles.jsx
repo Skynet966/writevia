@@ -12,7 +12,7 @@ export const Input = styled.input.attrs(({ placeholder, ...otherProps }) => ({
 	font-weight: 400;
 	color: ${props => props.theme.Black};
 	width: -webkit-fill-available;
-	height: ${props => (props.type === 'textarea' ? '100px;' : '20px')};
+	height: ${props => (props.type === 'textarea' ? '100px;' : '40px')};
 	padding: 10px 15px;
 	background-color: ${props => props.theme.White};
 	border-radius: 5px;
