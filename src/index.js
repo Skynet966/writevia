@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
+import { LoaderProvider, Puff } from '@agney/react-loading';
 
 import { store, persistor } from './redux/store';
 
@@ -15,7 +16,9 @@ ReactDOM.render(
 		<Provider store={store}>
 			<BrowserRouter>
 				<PersistGate persistor={persistor}>
-					<App />
+					<LoaderProvider indicator={<Puff width='50' />}>
+						<App />
+					</LoaderProvider>
 				</PersistGate>
 			</BrowserRouter>
 		</Provider>

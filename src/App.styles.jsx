@@ -101,6 +101,11 @@ const GlobalStyle = createGlobalStyle`
     .moon{
         color:#918e80;
     }
+    .avatar__image__loading{
+        position: absolute;
+        width: 100px;
+        color: crimson;
+    }
 `;
 
 export default GlobalStyle;
