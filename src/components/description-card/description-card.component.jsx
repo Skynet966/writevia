@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { useLoading } from '@agney/react-loading';
 
-import SocialMedia from '../social-media/social-media.component';
-
 import {
 	BodyText,
 	CardBody,
@@ -14,6 +12,7 @@ import {
 	DescriptionCardContainer,
 	LineFx
 } from './description-card.styles';
+import SocialIcons from '../social-icons/social-icons.component';
 
 const DescriptionCard = ({
 	title,
@@ -64,7 +63,7 @@ const DescriptionCard = ({
 								</BodyText>
 							))}
 							{children}
-							{socialmedia ? <SocialMedia Usernames={socialmedia} /> : ''}
+							{socialmedia ? <SocialIcons Usernames={socialmedia} /> : ''}
 						</CardBody>
 					) : (
 						''

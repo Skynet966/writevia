@@ -15,6 +15,7 @@ export const light_theme = {
 	White: '#ffffff',
 	Black: '#000000',
 	Muted: '#6c757d',
+	Link: '#11151c',
 	light: true
 };
 
@@ -32,6 +33,7 @@ export const dark_theme = {
 	White: '#161625',
 	Black: '#ffffff',
 	Muted: '#6c757d',
+	Link: '#fffff6',
 	light: false
 };
 

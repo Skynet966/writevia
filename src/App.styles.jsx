@@ -76,7 +76,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a{
-        color: ${props => props.theme.Black};
+        color: ${props => props.theme.Link};
         text-decoration: none;
         outline:none;
         transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);

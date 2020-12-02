@@ -1,21 +1,46 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-import styled from 'styled-components';
+import {
+	CategoryList,
+	CategoryWidgetContainer,
+	ItemLink,
+	ListItem
+} from './category-widget.styles';
 
-export const CategoryWidgetContainer = styled.div``;
-export const CategoryList = styled.ul``;
-export const ListItem = styled.li``;
-export const ItemLink = styled(NavLink)``;
+const CategoryWidget = ({ match }) => {
+	console.log(match.path);
+	return (
+		<CategoryWidgetContainer>
+			<CategoryList>
+				<ListItem>
+					<ItemLink activeClassName='active__link' to='/blogs/technology'>
+						Technology
+					</ItemLink>
+				</ListItem>
+				<ListItem>
+					<ItemLink activeClassName='active__link' to='/blogs/technology'>
+						Technology
+					</ItemLink>
+				</ListItem>
+				<ListItem>
+					<ItemLink activeClassName='active__link' to='/blogs/technology'>
+						Technology
+					</ItemLink>
+				</ListItem>
+				<ListItem>
+					<ItemLink activeClassName='active__link' to='/blogs/technology'>
+						Technology
+					</ItemLink>
+				</ListItem>
+				<ListItem>
+					<ItemLink activeClassName='active__link' to='/blogs/technology'>
+						Technology
+					</ItemLink>
+				</ListItem>
+			</CategoryList>
+		</CategoryWidgetContainer>
+	);
+};
 
-const CategoryWidget = () => (
-	<CategoryWidgetContainer>
-		<CategoryList>
-			<ListItem>
-				<ItemLink activeClassName={active__link} to='/blogs/' />
-			</ListItem>
-		</CategoryList>
-	</CategoryWidgetContainer>
-);
-
-export default CategoryWidget;
+export default withRouter(CategoryWidget);

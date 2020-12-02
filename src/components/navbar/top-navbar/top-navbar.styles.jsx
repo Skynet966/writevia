@@ -15,23 +15,6 @@ export const TopNavbarContainer = styled.div`
 	}
 `;
 
-export const SocialMediaContainer = styled.div`
-	display: flex;
-	padding: 0 10px;
-	width: 100px;
-	align-items: center;
-	justify-content: space-between;
-
-	@media (max-width: ${size.sm}) {
-		display: none;
-	}
-`;
-
-export const SocialMediaIcon = styled.span`
-	font-size: 1.1em;
-	color: ${props => props.theme.Black};
-`;
-
 export const LogoContainer = styled.div`
 	padding: 7px 0px;
 	width: fit-content;

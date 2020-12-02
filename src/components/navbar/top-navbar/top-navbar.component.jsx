@@ -14,21 +14,24 @@ import {
 
 import {
 	TopNavbarContainer,
-	SocialMediaContainer,
-	SocialMediaIcon,
 	LogoContainer,
 	Logo,
 	MenuItemsContainer,
 	MenuItem
 } from './top-navbar.styles';
+import SocialIcons from '../../social-icons/social-icons.component';
 
 const TopNavbar = ({ show, showSearch, hideSearch, mode, toggleTheme }) => (
 	<TopNavbarContainer>
-		<SocialMediaContainer>
-			<SocialMediaIcon className='fa fa-facebook' />
-			<SocialMediaIcon className='fa fa-twitter' />
-			<SocialMediaIcon className='fa fa-linkedin' />
-		</SocialMediaContainer>
+		<SocialIcons
+			width='100px'
+			sm_display='none'
+			Usernames={{
+				facebook: 'writevia',
+				twitter: 'writevia',
+				linkedin: 'writevia'
+			}}
+		/>
 		<LogoContainer>
 			<Logo
 				width='160'

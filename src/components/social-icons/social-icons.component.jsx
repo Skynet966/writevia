@@ -1,11 +1,11 @@
 import React from 'react';
 
 import {
-	SocialMediaContainer,
-	SocialMediaIcon,
-	SocialMediaItem,
-	SocialMediaList
-} from './social-media.styles';
+	SocialIconsContainer,
+	IconsList,
+	ListIcon,
+	IconLink
+} from './social-icons.styles';
 
 const SocialMediaURL = {
 	facebook: 'https://www.facebook.com/',
@@ -17,7 +17,7 @@ const SocialMediaURL = {
 	github: 'https://github.com/'
 };
 
-const SocialMedia = ({
+const SocialIcons = ({
 	Usernames = {
 		facebook: '',
 		twitter: '',
@@ -26,29 +26,31 @@ const SocialMedia = ({
 		pinterest: '',
 		youtube: '',
 		github: ''
-	}
+	},
+	width,
+	sm_display
 }) => {
 	let userNames = Object.entries(Usernames);
 	return (
-		<SocialMediaContainer>
-			<SocialMediaList>
+		<SocialIconsContainer width={width} sm_display={sm_display}>
+			<IconsList width={width}>
 				{userNames.map(([media, username]) =>
 					username ? (
-						<SocialMediaItem key={media}>
-							<SocialMediaIcon
+						<ListIcon key={media}>
+							<IconLink
 								className={`fa fa-${media}`}
 								href={`${SocialMediaURL[media]}${username}`}
 								target='_blank'
 								rel='noreferrer'
 							/>
-						</SocialMediaItem>
+						</ListIcon>
 					) : (
 						''
 					)
 				)}
-			</SocialMediaList>
-		</SocialMediaContainer>
+			</IconsList>
+		</SocialIconsContainer>
 	);
 };
 
-export default SocialMedia;
+export default SocialIcons;
