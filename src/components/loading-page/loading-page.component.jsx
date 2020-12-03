@@ -1,20 +1,7 @@
 import React from 'react';
-
-import styled from 'styled-components';
-
 import { useLoading } from '@agney/react-loading';
 
-const LoadingPageContainer = styled.div`
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	height: 80vh;
-	width: 100%;
-	place-content: center;
-`;
-const LoadingIcon = styled.div`
-	margin: 0 auto;
-`;
+import { LoadingIcon, LoadingPageContainer } from './loading-page.styles';
 
 const LoadingPage = () => {
 	const { indicatorEl } = useLoading({

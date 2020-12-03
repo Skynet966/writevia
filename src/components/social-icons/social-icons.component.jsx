@@ -4,7 +4,8 @@ import {
 	SocialIconsContainer,
 	IconsList,
 	ListIcon,
-	IconLink
+	IconLink,
+	RoundIcon
 } from './social-icons.styles';
 
 const SocialMediaURL = {
@@ -28,7 +29,8 @@ const SocialIcons = ({
 		github: ''
 	},
 	width,
-	sm_display
+	sm_display,
+	rounded
 }) => {
 	let userNames = Object.entries(Usernames);
 	return (
@@ -37,12 +39,24 @@ const SocialIcons = ({
 				{userNames.map(([media, username]) =>
 					username ? (
 						<ListIcon key={media}>
-							<IconLink
-								className={`fa fa-${media}`}
-								href={`${SocialMediaURL[media]}${username}`}
-								target='_blank'
-								rel='noreferrer'
-							/>
+							{rounded ? (
+								<RoundIcon
+									as='a'
+									className={`fa fa-${media}`}
+									platform={media}
+									href={`${SocialMediaURL[media]}${username}`}
+									target='_blank'
+									rel='noreferrer'
+								/>
+							) : (
+								<IconLink
+									className={`fa fa-${media}`}
+									platform={media}
+									href={`${SocialMediaURL[media]}${username}`}
+									target='_blank'
+									rel='noreferrer'
+								/>
+							)}
 						</ListIcon>
 					) : (
 						''

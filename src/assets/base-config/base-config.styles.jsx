@@ -44,14 +44,15 @@ export const social = {
 	Info: '#ffc107',
 
 	//Social Colors
-	fb: '#225b99',
-	tw: '#00adf2',
-	pr: '#cc2127',
-	in:
+	facebook: '#225b99',
+	twitter: '#00adf2',
+	pinterest: '#cc2127',
+	instagram:
 		'linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)',
-	li: '#2867B2',
-	wa: '#25d366',
-	yt: '#ff0000'
+	linkedin: '#2867B2',
+	whatsapp: '#25d366',
+	youtube: '#ff0000',
+	github: '#24292e'
 };
 //screen width
 export const size = {
