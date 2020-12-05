@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import { size } from '../../assets/base-config/base-config.styles';
+import { screenSize } from '../../App.styles';
 
 export const DescriptionCardContainer = styled.div`
 	margin: 20px 10px;
@@ -21,11 +20,11 @@ export const CardTitle = styled.h3`
 export const LineFx = styled.div`
 	height: 2px;
 	width: 100%;
-	background: ${props => props.theme.Grey1};
+	background: ${({ theme }) => theme.LineFX};
 `;
 export const CardBodyContainer = styled.div`
 	display: flex;
-	@media (max-width: ${size.sm}) {
+	@media (max-width: ${screenSize.sm}) {
 		flex-direction: column;
 	}
 `;
@@ -40,8 +39,8 @@ export const CardImage = styled.img`
 	height: 100px;
 `;
 export const CardBody = styled.div`
-	text-align: left;
-	@media (max-width: ${size.sm}) {
+	width: -webkit-fill-available;
+	@media (max-width: ${screenSize.sm}) {
 		text-align: center;
 	}
 `;

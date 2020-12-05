@@ -1,16 +1,31 @@
 import React from 'react';
+import CounterWidget from '../components/counter-widget/counter-widget.components';
 
-import InfoWidget from '../components/info-widget/info-widget.component';
+import styled from 'styled-components';
+
+const ColorCheck = styled.div`
+	background: ${props => props.theme[props.bgColor]};
+	height: 200px;
+	width: 150px;
+`;
 
 const TestPage = () => (
-	<div>
-		<InfoWidget
-			imageUrl='https://writevia.gumlet.io/img/logo/writevia_name_logo.png'
-			text={[
-				'We provide you with the latest and the trending updates from sport, current affairs, culture, politics, economy, etc., with a lot of other super interesting articles including, but not limited to, movie reviews, interviews, candid conversations.',
-				'Join us in this noble quest, and write your heart out.'
-			]}
-		/>
+	<div className='container'>
+		<div className='row'>
+			<ColorCheck bgColor='Body'></ColorCheck>
+			<ColorCheck bgColor='Headers'></ColorCheck>
+			<ColorCheck bgColor='Primary'></ColorCheck>
+			<ColorCheck bgColor='Secondary'></ColorCheck>
+			<ColorCheck bgColor='Loader'></ColorCheck>
+			<ColorCheck bgColor='Dark'></ColorCheck>
+			<ColorCheck bgColor='Grey1'></ColorCheck>
+			<ColorCheck bgColor='Grey2'></ColorCheck>
+			<ColorCheck bgColor='Grey3'></ColorCheck>
+			<ColorCheck bgColor='White'></ColorCheck>
+			<ColorCheck bgColor='Black'></ColorCheck>
+			<ColorCheck bgColor='Muted'></ColorCheck>
+			<ColorCheck bgColor='Link'></ColorCheck>
+		</div>
 	</div>
 );
 

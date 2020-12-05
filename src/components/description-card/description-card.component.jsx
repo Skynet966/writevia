@@ -22,7 +22,8 @@ const DescriptionCard = ({
 	size,
 	socialmedia,
 	children,
-	position
+	position,
+	linefx = true
 }) => {
 	const [loading, setloading] = useState(true);
 	const { indicatorEl } = useLoading({
@@ -34,7 +35,7 @@ const DescriptionCard = ({
 			{title ? (
 				<CardTitleContainer>
 					<CardTitle size={size}>{title}</CardTitle>
-					<LineFx />
+					{linefx ? <LineFx /> : ''}
 				</CardTitleContainer>
 			) : (
 				''

@@ -13,3 +13,6 @@ export const setSearchText = text => ({
 export const toggleTheme = () => ({
 	type: AppActionTypes.TOGGLE_THEME
 });
+export const toggleMenu = () => ({
+	type: AppActionTypes.TOGGLE_MENU
+});

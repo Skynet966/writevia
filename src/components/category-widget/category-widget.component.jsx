@@ -8,39 +8,36 @@ import {
 	ListItem
 } from './category-widget.styles';
 
-const CategoryWidget = ({ match }) => {
-	console.log(match.path);
-	return (
-		<CategoryWidgetContainer>
-			<CategoryList>
-				<ListItem>
-					<ItemLink activeClassName='active__link' to='/blogs/technology'>
-						Technology
-					</ItemLink>
-				</ListItem>
-				<ListItem>
-					<ItemLink activeClassName='active__link' to='/blogs/technology'>
-						Technology
-					</ItemLink>
-				</ListItem>
-				<ListItem>
-					<ItemLink activeClassName='active__link' to='/blogs/technology'>
-						Technology
-					</ItemLink>
-				</ListItem>
-				<ListItem>
-					<ItemLink activeClassName='active__link' to='/blogs/technology'>
-						Technology
-					</ItemLink>
-				</ListItem>
-				<ListItem>
-					<ItemLink activeClassName='active__link' to='/blogs/technology'>
-						Technology
-					</ItemLink>
-				</ListItem>
-			</CategoryList>
-		</CategoryWidgetContainer>
-	);
-};
+const CategoryWidget = ({ match }) => (
+	<CategoryWidgetContainer>
+		<CategoryList>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+		</CategoryList>
+	</CategoryWidgetContainer>
+);
 
 export default withRouter(CategoryWidget);

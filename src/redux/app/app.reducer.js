@@ -1,14 +1,12 @@
 import AppActionTypes from './app.types';
 
-import {
-	light_theme,
-	dark_theme
-} from '../../assets/base-config/base-config.styles';
+import { lightTheme, darkTheme } from '../../App.styles';
 
 const INITIAL_STATE = {
 	showSearchbar: false,
 	searchText: null,
-	theme: light_theme
+	theme: lightTheme,
+	menu: false
 };
 
 const appReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -20,8 +18,10 @@ const appReducer = (state = INITIAL_STATE, { type, payload }) => {
 		case AppActionTypes.SET_SEARCH_TEXT:
 			return { ...state, searchText: payload };
 		case AppActionTypes.TOGGLE_THEME:
-			if (state.theme.light) return { ...state, theme: dark_theme };
-			return { ...state, theme: light_theme };
+			if (state.theme.light) return { ...state, theme: darkTheme };
+			return { ...state, theme: lightTheme };
+		case AppActionTypes.TOGGLE_MENU:
+			return { ...state, menu: !state.menu };
 		default:
 			return state;
 	}

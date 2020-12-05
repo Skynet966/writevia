@@ -31,7 +31,7 @@ export const IconatedInfoLinkContainer = styled.div`
 export const InfoHeader = styled.div``;
 export const Heading = styled.h4`
 	margin-top: 0;
-	color: ${props => props.theme.Muted};
+	color: ${({ theme }) => theme.MutedText};
 	font-weight: 500;
 `;
 export const InfoItemList = styled.ul`
@@ -48,7 +48,7 @@ export const Link = styled.a`
 	align-self: center;
 	transition: color 0.3s linear;
 	${InfoListItem}:hover & {
-		color: ${props => props.theme.Primary};
+		color: ${({ theme }) => theme.ActiveLink};
 	}
 `;
 export const Icon = styled.i`
@@ -57,7 +57,7 @@ export const Icon = styled.i`
 	width: 40px;
 	text-align: center;
 	height: 40px;
-	background: ${props => props.theme.Headers};
+	background: ${({ theme }) => theme.Header};
 	color: #ee4266;
 	border: 1px solid #e8eaed;
 	line-height: 40px;
@@ -66,7 +66,7 @@ export const Icon = styled.i`
 	margin-right: 10px;
 	box-shadow: inset 0 0 5px White;
 	${InfoListItem}:hover & {
-		box-shadow: 0 0 6px ${props => props.theme.Primary};
+		box-shadow: 0 0 6px ${({ theme }) => theme.ActiveLink};
 		animation: ${CallAnimation} 1s linear infinite;
 	}
 `;

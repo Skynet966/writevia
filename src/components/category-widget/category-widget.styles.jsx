@@ -7,6 +7,7 @@ export const CategoryWidgetContainer = styled.div`
 	border-radius: 1em;
 	margin-bottom: 20px;
 	padding: 0 5px;
+	width: -webkit-fill-available;
 `;
 export const CategoryList = styled.ul`
 	display: flex;
@@ -17,7 +18,8 @@ export const CategoryList = styled.ul`
 `;
 export const ListItem = styled.li`
 	padding: 15px;
-	border-bottom: 1px solid ${props => props.theme.Grey1};
+	text-align: center;
+	border-bottom: 1px solid ${({ theme }) => theme.FooterTextBg};
 	&:last-child {
 		border-bottom: none;
 	}
@@ -25,4 +27,5 @@ export const ListItem = styled.li`
 export const ItemLink = styled(NavLink)`
 	font-weight: 800;
 	text-transform: uppercase;
+	color: ${({ theme }) => theme.FooterText};
 `;

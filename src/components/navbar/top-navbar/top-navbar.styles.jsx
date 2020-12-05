@@ -1,31 +1,33 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { size } from '../../../assets/base-config/base-config.styles';
+import { screenSize } from '../../../App.styles';
 
 export const TopNavbarContainer = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	background: ${props => props.theme.Headers};
+	background: ${({ theme }) => theme.Header};
 	justify-content: space-around;
-	border-bottom: 1px solid ${props => props.theme.Grey1};
-	@media (max-width: ${size.sm}) {
+	border-bottom: 1px solid ${({ theme }) => theme.LineFX};
+	@media (max-width: ${screenSize.sm}) {
 		justify-content: space-between;
 		padding: 0 10px;
 	}
 `;
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled(Link)`
+	display: block;
 	padding: 7px 0px;
 	width: fit-content;
-	@media (max-width: ${size.sm}) {
+	@media (max-width: ${screenSize.sm}) {
 		padding: 15px 0px;
 	}
 `;
 
 export const Logo = styled.img`
 	width: 160px;
-	@media (max-width: ${size.sm}) {
+	@media (max-width: ${screenSize.sm}) {
 		width: 120px;
 	}
 `;
@@ -36,18 +38,18 @@ export const MenuItemsContainer = styled.div`
 	width: 100px;
 	align-items: center;
 	justify-content: space-between;
-	@media (max-width: ${size.sm}) {
+	@media (max-width: ${screenSize.sm}) {
 		width: 150px;
 	}
 `;
 
 export const MenuItem = styled.span`
 	font-size: 1.1em;
-	color: ${props => props.theme.Black};
+	color: ${({ theme }) => theme.HeaderText};
 	border: 0;
 	border-radius: 50%;
 	&:last-of-type {
-		@media (min-width: ${size.md}) {
+		@media (min-width: ${screenSize.md}) {
 			display: none;
 		}
 	}

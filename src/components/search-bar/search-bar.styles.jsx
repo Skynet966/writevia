@@ -1,15 +1,14 @@
 import styled from 'styled-components';
-
-import { size } from '../../assets/base-config/base-config.styles';
+import { screenSize } from '../../App.styles';
 
 export const SearchBarContainer = styled.div`
 	position: absolute;
 	width: 100%;
 	z-index: -1;
-	background: ${props => props.theme.Headers};
+	background: ${({ theme }) => theme.Header};
 	display: flex;
 	place-content: center;
-	transform: translateY(${props => (props.show ? 0 : -110)}%);
+	transform: translateY(${({ show }) => (show ? 0 : -110)}%);
 	box-shadow: 0 6px 4px -5px rgba(0, 0, 0, 0.7);
 	border-radius: 0px 0px 20px 20px;
 	transition: transform 0.8s ease-in-out;
@@ -25,15 +24,17 @@ export const InputBox = styled.input`
 	border: none;
 	outline: none;
 	width: 50vw;
-	caret-color: ${props => props.theme.Grey2};
+	background: ${({ theme }) => theme.Body};
+	caret-color: ${({ theme }) => theme.HeaderText};
+	color: ${({ theme }) => theme.HeaderText};
 	padding: 5px;
-	border-radius: 20px 20px;
-	box-shadow: inset 0 0 20px ${props => props.theme.Grey1};
+	border-radius: 20px;
+	box-shadow: inset 0 0 4px ${({ theme }) => theme.Shadow};
 	&::placeholder {
 		font-weight: 700;
-		color: ${props => props.theme.Grey2};
+		color: ${({ theme }) => theme.HeaderText};
 	}
-	@media (max-width: ${size.sm}) {
+	@media (max-width: ${screenSize.sm}) {
 		width: 90vw;
 	}
 `;

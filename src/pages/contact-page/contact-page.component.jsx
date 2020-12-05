@@ -4,7 +4,7 @@ import { ContactPageContainer } from './contact-page.styles';
 
 import PageHeader from '../../components/page-header/page-header.component';
 import IconatedInfoLink from '../../components/iconated-info-link/iconated-info-link.component';
-import ContactForm from '../../containers/contact-form/contact-form.container';
+import ContactForm from '../../components/contact-form/contact-form.component';
 
 const ContactPage = () => (
 	<ContactPageContainer>

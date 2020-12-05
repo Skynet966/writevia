@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { social } from '../../assets/base-config/base-config.styles';
+import { socialColor } from '../../App.styles';
 
 export const SocialWidgetContainer = styled.div``;
 export const SocialContainer = styled.ul`
@@ -9,7 +9,7 @@ export const SocialContainer = styled.ul`
 `;
 export const SocialBlock = styled.li`
 	padding: 30px 0;
-	background: ${props => social[props.media]};
+	background: ${props => socialColor[props.media]};
 	overflow: hidden;
 	transition: opacity 0.4s linear;
 	width: -webkit-fill-available;

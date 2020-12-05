@@ -4,6 +4,7 @@ import DescriptionCard from '../../components/description-card/description-card.
 import FormInput from '../../components/form-input/form-input.component';
 
 import styled from 'styled-components';
+import ButtonInput from '../button-input/button-input.component';
 
 export const ContactFormContainer = styled.div`
 	display: flex;
@@ -24,6 +25,7 @@ const ContactForm = () => (
 			<FormInput type='tel' placeholder='Phone' />
 			<FormInput type='textarea' placeholder='Message...' />
 		</ContactFormContainer>
+		<ButtonInput text='Send' />
 	</DescriptionCard>
 );
 

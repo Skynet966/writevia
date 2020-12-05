@@ -7,14 +7,14 @@ import SearchBar from '../../components/search-bar/search-bar.component';
 import './header.styles.css';
 
 const Header = () => (
-	<div className='header-container'>
+	<header className='header-container'>
 		<div className='header'>
 			<TopNavbar />
 			<BottomNavbar />
-			<SearchBar/>
+			<SearchBar />
 		</div>
 		<div className='header__fx' />
-	</div>
+	</header>
 );
 
 export default Header;

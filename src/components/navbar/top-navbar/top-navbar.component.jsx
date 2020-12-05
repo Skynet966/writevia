@@ -9,6 +9,7 @@ import {
 import {
 	hideSearchbar,
 	showSearchbar,
+	toggleMenu,
 	toggleTheme
 } from '../../../redux/app/app.actions';
 
@@ -21,7 +22,14 @@ import {
 } from './top-navbar.styles';
 import SocialIcons from '../../social-icons/social-icons.component';
 
-const TopNavbar = ({ show, showSearch, hideSearch, mode, toggleTheme }) => (
+const TopNavbar = ({
+	show,
+	showSearch,
+	hideSearch,
+	mode,
+	toggleTheme,
+	toggleMenu
+}) => (
 	<TopNavbarContainer>
 		<SocialIcons
 			width='100px'
@@ -32,7 +40,7 @@ const TopNavbar = ({ show, showSearch, hideSearch, mode, toggleTheme }) => (
 				linkedin: 'writevia'
 			}}
 		/>
-		<LogoContainer>
+		<LogoContainer to='/'>
 			<Logo
 				width='160'
 				src={`https://writevia.gumlet.io/img/logo/writevia_name_logo${
@@ -53,7 +61,7 @@ const TopNavbar = ({ show, showSearch, hideSearch, mode, toggleTheme }) => (
 			) : (
 				<MenuItem className='fa fa-sun-o sun' onClick={toggleTheme} />
 			)}
-			<MenuItem className='fa fa-bars' />
+			<MenuItem className='fa fa-bars' onClick={toggleMenu} />
 		</MenuItemsContainer>
 	</TopNavbarContainer>
 );
@@ -66,7 +74,8 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = dispatch => ({
 	showSearch: () => dispatch(showSearchbar()),
 	hideSearch: () => dispatch(hideSearchbar()),
-	toggleTheme: () => dispatch(toggleTheme())
+	toggleTheme: () => dispatch(toggleTheme()),
+	toggleMenu: () => dispatch(toggleMenu())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopNavbar);

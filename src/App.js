@@ -10,6 +10,7 @@ import { selectTheme } from './redux/app/app.selectors';
 import Header from './containers/header/header.container';
 import LoadingPage from './components/loading-page/loading-page.component';
 import TestPage from './pages/test.page';
+import Footer from './containers/footer/footer.component';
 
 const HomePage = lazy(() => import('./pages/home-page/home-page.component'));
 const ContactPage = lazy(() =>
@@ -32,6 +33,7 @@ const App = ({ theme }) => (
 					<Route exact path='/test' component={TestPage} />
 				</Switch>
 			</Suspense>
+			<Footer />
 		</AppContainer>
 	</ThemeProvider>
 );
