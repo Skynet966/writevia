@@ -13,6 +13,7 @@ import TestPage from './pages/test.page';
 import Footer from './containers/footer/footer.component';
 
 const HomePage = lazy(() => import('./pages/home-page/home-page.component'));
+const BlogsPage = lazy(() => import('./pages/blogs-page/blogs-page.component'));
 const ContactPage = lazy(() =>
 	import('./pages/contact-page/contact-page.component')
 );
@@ -27,6 +28,7 @@ const App = ({ theme }) => (
 			<Suspense fallback={<LoadingPage />}>
 				<Switch>
 					<Route exact path='/' component={HomePage} />
+					<Route exact path='/blogs' component={BlogsPage} />
 					<Route exact path='/contact-us' component={ContactPage} />
 					<Route exact path='/our-team' component={TeamPage} />
 					<Route exact path='/about-us' component={AboutPage} />

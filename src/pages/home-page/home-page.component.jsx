@@ -1,7 +1,9 @@
 import React from 'react';
 
-import './home-page.styles.css';
+import styled from 'styled-components';
 
-const HomePage = () => <div className='home-page'></div>;
+export const HomePageContainer = styled.div``;
+
+const HomePage = () => <HomePageContainer></HomePageContainer>;
 
 export default HomePage;

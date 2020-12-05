@@ -6,6 +6,7 @@ export const SocialContainer = styled.ul`
 	display: flex;
 	box-shadow: 0 0 3px #000;
 	place-content: space-around;
+	text-align: center;
 `;
 export const SocialBlock = styled.li`
 	padding: 30px 0;
