@@ -1,9 +1,11 @@
 import React from 'react';
 
-import styled from 'styled-components';
 import Carousel from '../../components/carousel/carousel.component';
 import DescriptionCard from '../../components/description-card/description-card.component';
 import SocialWidget from '../../components/social-widget/social-widget.component';
+import CategoryWidget from '../../components/category-widget/category-widget.component';
+
+import styled from 'styled-components';
 
 export const BlogsPageContainer = styled.div``;
 
@@ -17,7 +19,9 @@ const BlogsPage = () => (
 					<DescriptionCard title='Social media'>
 						<SocialWidget />
 					</DescriptionCard>
-					<DescriptionCard title='Categories'></DescriptionCard>
+					<DescriptionCard title='Categories'>
+						<CategoryWidget />
+					</DescriptionCard>
 				</div>
 			</div>
 		</div>

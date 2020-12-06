@@ -12,6 +12,7 @@ export const lightTheme = {
 	Footer: '#1b1c1e',
 	FooterText: '#d9d9d9',
 	FooterTextBg: '#323335',
+	FooterLineFX: '#323335',
 	ActiveLink: '#ee4266',
 	MutedText: '#6c757d',
 	LineFX: '#e8eaed',
@@ -26,6 +27,7 @@ export const darkTheme = {
 	Footer: '#1e1e30',
 	FooterText: '#d9d9d9',
 	FooterTextBg: '#161625',
+	FooterLineFX: '#4e4e66',
 	ActiveLink: '#ee4266',
 	MutedText: '#6c757d',
 	LineFX: '#25253d',
@@ -53,7 +55,8 @@ export const color = {
 	warning: '#ffc107',
 	danger: '#dc3545',
 	light: '#f8f9fa',
-	dark: '#343a40'
+	dark: '#343a40',
+	megan: '#97989b'
 };
 export const socialColor = {
 	facebook: '#225b99',
@@ -186,6 +189,9 @@ const GlobalStyle = createGlobalStyle`
     .page__loading{
         color: ${color.red};
         width:fit-content;
+    }
+    .linefx__top{
+        border-top: 1px solid ${({ theme }) => theme.FooterLineFX}
     }
 `;
 

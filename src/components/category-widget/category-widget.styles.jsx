@@ -19,7 +19,8 @@ export const CategoryList = styled.ul`
 export const ListItem = styled.li`
 	padding: 15px;
 	text-align: center;
-	border-bottom: 1px solid ${({ theme }) => theme.FooterTextBg};
+	border-bottom: 1px solid
+		${({ theme, invert }) => (invert ? theme.FooterLineFX : theme.LineFX)};
 	&:last-child {
 		border-bottom: none;
 	}
@@ -27,5 +28,5 @@ export const ListItem = styled.li`
 export const ItemLink = styled(NavLink)`
 	font-weight: 800;
 	text-transform: uppercase;
-	color: ${({ theme }) => theme.FooterText};
+	color: ${({ theme, invert }) => (invert ? theme.FooterText : theme.BodyText)};
 `;

@@ -6,13 +6,15 @@ import InfoWidget from '../../components/info-widget/info-widget.component';
 import CategoryWidget from '../../components/category-widget/category-widget.component';
 import TagsWidget from '../../components/tags-widget/tags-widget.component';
 import CounterWidget from '../../components/counter-widget/counter-widget.components';
+import Copywrite from '../../components/copywrite/copywrite.component';
+import FooterNavbar from '../../components/footer-navbar/footer-navbar.component';
 
 import { FooterContainer } from './footer.styles';
 
 const Footer = () => (
 	<FooterContainer>
 		<div className='container'>
-			<div className='row pt-5'>
+			<div className='row py-5'>
 				<div className='col-lg-3'>
 					<InfoWidget
 						imageUrl='https://writevia.gumlet.io/img/logo/writevia_name_logo_alt.png'
@@ -25,7 +27,7 @@ const Footer = () => (
 				</div>
 				<div className='col-lg-3'>
 					<DescriptionCard size='medium' title='Categories' linefx={false}>
-						<CategoryWidget />
+						<CategoryWidget invert='true' />
 					</DescriptionCard>
 				</div>
 				<div className='col-lg-3'>
@@ -52,6 +54,14 @@ const Footer = () => (
 						writers='975'
 						posts='238456'
 					/>
+				</div>
+			</div>
+			<div className='row py-3 linefx__top'>
+				<div className='col-md-6 order-md-last'>
+					<FooterNavbar />
+				</div>
+				<div className='col-md-6 order-md-first'>
+					<Copywrite />
 				</div>
 			</div>
 		</div>

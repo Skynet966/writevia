@@ -8,31 +8,51 @@ import {
 	ListItem
 } from './category-widget.styles';
 
-const CategoryWidget = ({ match }) => (
+const CategoryWidget = ({ match, invert = 'false' }) => (
 	<CategoryWidgetContainer>
 		<CategoryList>
-			<ListItem>
-				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+			<ListItem invert={invert}>
+				<ItemLink
+					invert={invert}
+					activeClassName='active__link'
+					to='/blogs/technology'
+				>
 					Technology
 				</ItemLink>
 			</ListItem>
-			<ListItem>
-				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+			<ListItem invert={invert}>
+				<ItemLink
+					invert={invert}
+					activeClassName='active__link'
+					to='/blogs/technology'
+				>
 					Technology
 				</ItemLink>
 			</ListItem>
-			<ListItem>
-				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+			<ListItem invert={invert}>
+				<ItemLink
+					invert={invert}
+					activeClassName='active__link'
+					to='/blogs/technology'
+				>
 					Technology
 				</ItemLink>
 			</ListItem>
-			<ListItem>
-				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+			<ListItem invert={invert}>
+				<ItemLink
+					invert={invert}
+					activeClassName='active__link'
+					to='/blogs/technology'
+				>
 					Technology
 				</ItemLink>
 			</ListItem>
-			<ListItem>
-				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+			<ListItem invert={invert}>
+				<ItemLink
+					invert={invert}
+					activeClassName='active__link'
+					to='/blogs/technology'
+				>
 					Technology
 				</ItemLink>
 			</ListItem>
