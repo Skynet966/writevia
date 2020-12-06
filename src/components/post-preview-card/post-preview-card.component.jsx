@@ -8,7 +8,7 @@ export const PostPreviewCardContainer = styled.div`
 	display: flex;
 	flex-flow: ${({ size }) => (size === 'x-small' ? 'row' : 'column')};
 	cursor: pointer;
-	align-items: center;
+	align-items: ${({ size }) => (size === 'x-small' ? 'center' : '')};
 	margin-bottom: 20px;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.19), 0 4px 4px rgba(0, 0, 0, 0.23);
 	font-size: ${({ size }) =>
