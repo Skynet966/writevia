@@ -1,30 +1,67 @@
 import React from 'react';
-import CounterWidget from '../components/counter-widget/counter-widget.components';
 
-import styled from 'styled-components';
-
-const ColorCheck = styled.div`
-	background: ${props => props.theme[props.bgColor]};
-	height: 200px;
-	width: 150px;
-`;
+import PostPreviewCard from '../components/post-preview-card/post-preview-card.component';
 
 const TestPage = () => (
 	<div className='container'>
+		<div className='row my-5'>
+			<div className='col-md-6 col-lg-4'>
+				<PostPreviewCard></PostPreviewCard>
+			</div>
+			<div className='col-md-6 col-lg-4'>
+				<PostPreviewCard></PostPreviewCard>
+			</div>
+			<div className='col-md-6 col-lg-4'>
+				<PostPreviewCard></PostPreviewCard>
+			</div>
+			<div className='col-md-6 col-lg-4'>
+				<PostPreviewCard></PostPreviewCard>
+			</div>
+			<div className='col-md-6 col-lg-4'>
+				<PostPreviewCard></PostPreviewCard>
+			</div>
+			<div className='col-md-6 col-lg-4'>
+				<PostPreviewCard></PostPreviewCard>
+			</div>
+			<div className='col-md-6 col-lg-4'>
+				<PostPreviewCard></PostPreviewCard>
+			</div>
+			<div className='col-md-6 col-lg-4'>
+				<PostPreviewCard></PostPreviewCard>
+			</div>
+			<div className='col-md-6 col-lg-4'>
+				<PostPreviewCard></PostPreviewCard>
+			</div>
+		</div>
 		<div className='row'>
-			<ColorCheck bgColor='Body'></ColorCheck>
-			<ColorCheck bgColor='Headers'></ColorCheck>
-			<ColorCheck bgColor='Primary'></ColorCheck>
-			<ColorCheck bgColor='Secondary'></ColorCheck>
-			<ColorCheck bgColor='Loader'></ColorCheck>
-			<ColorCheck bgColor='Dark'></ColorCheck>
-			<ColorCheck bgColor='Grey1'></ColorCheck>
-			<ColorCheck bgColor='Grey2'></ColorCheck>
-			<ColorCheck bgColor='Grey3'></ColorCheck>
-			<ColorCheck bgColor='White'></ColorCheck>
-			<ColorCheck bgColor='Black'></ColorCheck>
-			<ColorCheck bgColor='Muted'></ColorCheck>
-			<ColorCheck bgColor='Link'></ColorCheck>
+			<div className='col-md-8'>
+				<div className='row'>
+					<div className='col-md-6 col-lg-4'>
+						<PostPreviewCard size='small' />
+					</div>
+					<div className='col-md-6 col-lg-4'>
+						<PostPreviewCard size='small' />
+					</div>
+					<div className='col-md-6 col-lg-4'>
+						<PostPreviewCard size='small' />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div className='row'>
+			<div className='col-md-12'>
+				<div className='row'>
+					<div className='col-md-6 col-lg-4'>
+						<PostPreviewCard size='x-small' />
+					</div>
+					<div className='col-md-6 col-lg-4'>
+						<PostPreviewCard size='x-small' />
+					</div>
+					<div className='col-md-6 col-lg-4'>
+						<PostPreviewCard size='x-small' />
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 );

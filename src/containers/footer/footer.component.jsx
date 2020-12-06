@@ -3,13 +3,13 @@ import React from 'react';
 import DescriptionCard from '../../components/description-card/description-card.component';
 
 import InfoWidget from '../../components/info-widget/info-widget.component';
-import CategoryWidget from '../../components/category-widget/category-widget.component';
 import TagsWidget from '../../components/tags-widget/tags-widget.component';
 import CounterWidget from '../../components/counter-widget/counter-widget.components';
 import Copywrite from '../../components/copywrite/copywrite.component';
 import FooterNavbar from '../../components/footer-navbar/footer-navbar.component';
 
 import { FooterContainer } from './footer.styles';
+import SocialWidget from '../../components/social-widget/social-widget.component';
 
 const Footer = () => (
 	<FooterContainer>
@@ -27,7 +27,7 @@ const Footer = () => (
 				</div>
 				<div className='col-lg-3'>
 					<DescriptionCard size='medium' title='Categories' linefx={false}>
-						<CategoryWidget invert='true' />
+						<SocialWidget />
 					</DescriptionCard>
 				</div>
 				<div className='col-lg-3'>

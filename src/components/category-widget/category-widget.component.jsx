@@ -8,51 +8,101 @@ import {
 	ListItem
 } from './category-widget.styles';
 
-const CategoryWidget = ({ match, invert = 'false' }) => (
+const CategoryWidget = ({ match }) => (
 	<CategoryWidgetContainer>
 		<CategoryList>
-			<ListItem invert={invert}>
-				<ItemLink
-					invert={invert}
-					activeClassName='active__link'
-					to='/blogs/technology'
-				>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
 					Technology
 				</ItemLink>
 			</ListItem>
-			<ListItem invert={invert}>
-				<ItemLink
-					invert={invert}
-					activeClassName='active__link'
-					to='/blogs/technology'
-				>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
 					Technology
 				</ItemLink>
 			</ListItem>
-			<ListItem invert={invert}>
-				<ItemLink
-					invert={invert}
-					activeClassName='active__link'
-					to='/blogs/technology'
-				>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
 					Technology
 				</ItemLink>
 			</ListItem>
-			<ListItem invert={invert}>
-				<ItemLink
-					invert={invert}
-					activeClassName='active__link'
-					to='/blogs/technology'
-				>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
 					Technology
 				</ItemLink>
 			</ListItem>
-			<ListItem invert={invert}>
-				<ItemLink
-					invert={invert}
-					activeClassName='active__link'
-					to='/blogs/technology'
-				>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
+					Technology
+				</ItemLink>
+			</ListItem>
+			<ListItem>
+				<ItemLink activeClassName='active__link' to='/blogs/technology'>
 					Technology
 				</ItemLink>
 			</ListItem>

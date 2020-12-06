@@ -7,6 +7,10 @@ export const SocialContainer = styled.ul`
 	box-shadow: 0 0 3px #000;
 	place-content: space-around;
 	text-align: center;
+	flex-flow: row;
+	@media (min-width: 768px) and (max-width: 992px) {
+		flex-flow: column; //768 991
+	}
 `;
 export const SocialBlock = styled.li`
 	padding: 30px 0;
