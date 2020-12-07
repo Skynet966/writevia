@@ -32,7 +32,7 @@ const FooterNavbar = () => (
 				<NavLink to='/contact-us'>Contact Us</NavLink>
 			</NavLinkContainer>
 			<NavLinkContainer>
-				<NavLink to='/out-team'>Our Team</NavLink>
+				<NavLink to='/our-team'>Our Team</NavLink>
 			</NavLinkContainer>
 			<NavLinkContainer>
 				<NavLink to='/about-us'>About Us</NavLink>

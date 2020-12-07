@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import { color } from '../../App.styles';
+import { color, screenSize } from '../../App.styles';
 
 import { NavLink } from '../footer-navbar/footer-navbar.component';
 
@@ -9,6 +9,9 @@ export const FooterCopywriteContainer = styled.div`
 	display: flex;
 	flex-flow: row;
 	margin: 18px auto;
+	@media (max-width: ${screenSize.md}) {
+		justify-content: center;
+	}
 `;
 export const CopywriteMsg = styled.h4`
 	margin: 0;
