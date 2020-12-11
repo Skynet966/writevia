@@ -4,7 +4,7 @@ export const FormInputContainer = styled.div`
 	margin: 0 0 20px;
 `;
 export const Input = styled.input.attrs(({ placeholder, ...otherProps }) => ({
-	placeholder: 'Enter your ' + placeholder,
+	placeholder: placeholder ? 'Enter ' + placeholder : '',
 	...otherProps
 }))`
 	font-family: 'Montserrat', sans-serif;
@@ -12,7 +12,7 @@ export const Input = styled.input.attrs(({ placeholder, ...otherProps }) => ({
 	font-weight: 400;
 	color: ${({ theme }) => theme.BodyText};
 	width: -webkit-fill-available;
-	height: ${props => (props.type === 'textarea' ? '100px;' : '40px')};
+	height: ${props => (props.type === 'textarea' ? '100px;' : '50px')};
 	padding: 10px 15px;
 	background-color: ${({ theme }) => theme.Body};
 	border-radius: 5px;
@@ -23,7 +23,10 @@ export const Input = styled.input.attrs(({ placeholder, ...otherProps }) => ({
 		color: ${({ theme }) => theme.MutedText};
 	}
 	&:focus {
-		box-shadow: 0px 0px 5px 1px ${({ theme }) => theme.ActiveLink};
+		box-shadow: ${({ type }) =>
+			type === 'range'
+				? ''
+				: '0px 0px 5px 1px ${({ theme }) => theme.ActiveLink}'};
 	}
 `;
 

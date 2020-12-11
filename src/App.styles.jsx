@@ -67,7 +67,8 @@ export const socialColor = {
 	linkedin: '#2867B2',
 	whatsapp: '#25d366',
 	youtube: '#ff0000',
-	github: '#24292e'
+	github: '#24292e',
+	google: '#1a73e8'
 };
 export const screenSize = {
 	xl: '1200px',
@@ -85,27 +86,6 @@ export const fadeIn = keyframes`
 const GlobalStyle = createGlobalStyle`
     html{
         scroll-behavior:smooth;
-         //Scroll bar Global Style
-        /* width */
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: #e8eaed;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #97989b;
-            border-radius: 1em;
-        }
-
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #323335;
-        }
     }
     body{
         font-family: 'Mulish', sans-serif;
@@ -121,6 +101,27 @@ const GlobalStyle = createGlobalStyle`
     ::selection{
         background-color:#e45f78;
         color: white;
+    }
+     //Scroll bar Global Style
+    /* width */
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background:${({ theme }) => theme.Body};
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #97989b;
+        border-radius: 1em;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #323335;
     }
     h1,h2,h3,h4,h5,h6{
         font-family: 'Montserrat', sans-serif;

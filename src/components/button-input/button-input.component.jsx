@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
+import { socialColor } from '../../App.styles';
 
 export const ButtonContainer = styled.div``;
 export const Button = styled.button`
@@ -13,12 +14,15 @@ export const Button = styled.button`
 	font-size: 14px;
 	text-transform: uppercase;
 	transition: all 0.3s;
-	background-color: ${({ theme }) => theme.ActiveLink};
-	box-shadow: inset 0 0 0 2px ${({ theme }) => theme.ActiveLink};
+	background-color: ${({ theme, media }) =>
+		media ? socialColor[media] : theme.ActiveLink};
+	box-shadow: inset 0 0 0 2px
+		${({ theme, media }) => (media ? socialColor[media] : theme.ActiveLink)};
 	&:hover,
 	:focus {
 		background: transparent;
 		outline: none;
+		color: ${({ theme }) => theme.BodyText};
 	}
 `;
 

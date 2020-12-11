@@ -11,6 +11,7 @@ import Header from './containers/header/header.container';
 import LoadingPage from './components/loading-page/loading-page.component';
 import TestPage from './pages/test.page';
 import Footer from './containers/footer/footer.component';
+import CreatePostPage from './pages/create-post-page/create-post-page.page';
 
 const HomePage = lazy(() => import('./pages/home-page/home-page.component'));
 const BlogsPage = lazy(() => import('./pages/blogs-page/blogs-page.component'));
@@ -33,6 +34,7 @@ const App = ({ theme }) => (
 					<Route exact path='/our-team' component={TeamPage} />
 					<Route exact path='/about-us' component={AboutPage} />
 					<Route exact path='/test' component={TestPage} />
+					<Route exact path='/create-post' component={CreatePostPage} />
 				</Switch>
 			</Suspense>
 			<Footer />

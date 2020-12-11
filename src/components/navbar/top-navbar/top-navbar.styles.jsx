@@ -34,7 +34,7 @@ export const Logo = styled.img`
 
 export const MenuItemsContainer = styled.div`
 	display: flex;
-	padding: 0 10px;
+	padding: 0;
 	width: 100px;
 	align-items: center;
 	justify-content: space-between;

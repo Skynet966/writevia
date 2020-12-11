@@ -10,18 +10,21 @@ const FormInput = ({
 	handleClick,
 	label,
 	uid = generateUUID(),
+	children,
 	...otherProps
 }) => (
 	<FormInputContainer>
 		{label ? <Label htmlFor={uid}>{label}</Label> : ''}
 		<Input
-			as={type === 'textarea' ? type : ''}
+			as={type === 'textarea' ? type : type === 'select' ? type : ''}
 			type={type}
 			id={uid}
 			onClick={handleClick}
 			onChange={handleChange}
 			{...otherProps}
-		/>
+		>
+			{children}
+		</Input>
 	</FormInputContainer>
 );
 

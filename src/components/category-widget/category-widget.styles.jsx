@@ -15,6 +15,15 @@ export const CategoryList = styled.ul`
 	margin: 0;
 	max-height: 800px;
 	overflow-y: auto;
+	::-webkit-scrollbar-track {
+		margin: 15px 0;
+	}
+	::-webkit-scrollbar {
+		width: 6px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #c4c4c4;
+	}
 `;
 export const ListItem = styled.li`
 	padding: 15px;

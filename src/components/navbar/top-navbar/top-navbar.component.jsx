@@ -21,6 +21,7 @@ import {
 	MenuItem
 } from './top-navbar.styles';
 import SocialIcons from '../../social-icons/social-icons.component';
+import { withRouter } from 'react-router-dom';
 
 const TopNavbar = ({
 	show,
@@ -28,7 +29,8 @@ const TopNavbar = ({
 	hideSearch,
 	mode,
 	toggleTheme,
-	toggleMenu
+	toggleMenu,
+	history
 }) => (
 	<TopNavbarContainer>
 		<SocialIcons
@@ -55,7 +57,10 @@ const TopNavbar = ({
 			) : (
 				<MenuItem className='fa fa-search' onClick={showSearch} />
 			)}
-			<MenuItem className='fa fa-user' />
+			<MenuItem
+				className='fa fa-user'
+				onClick={() => history.push('/create-post')}
+			/>
 			{mode ? (
 				<MenuItem className='fa fa-moon-o moon' onClick={toggleTheme} />
 			) : (
@@ -78,4 +83,7 @@ const mapDispatchToProps = dispatch => ({
 	toggleMenu: () => dispatch(toggleMenu())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopNavbar);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(withRouter(TopNavbar));
