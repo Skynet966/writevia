@@ -1,43 +1,68 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import FormInput from '../form-input/form-input.component';
 import ButtonInput from '../button-input/button-input.component';
 import DescriptionCard from '../description-card/description-card.component';
-
-import styled from 'styled-components';
 import SocialLogin from '../social-login/social-login.component';
-import { Link } from 'react-router-dom';
+import {
+	ForgotPasswordContainer,
+	LoginFormContainer,
+	SocialLineBreak
+} from './login-form.styles';
 
-export const LoginFormContainer = styled.div`
-	text-align-last: left;
-	padding: 30px;
-	border: 1px solid ${({ theme }) => theme.LineFX};
-	border-radius: 5px;
-	background: ${({ theme }) => theme.Header};
-`;
-export const ForgotPasswordContainer = styled.div`
-	padding-left: 5px;
-	margin: -15px 0 15px;
-`;
+import { localSignInStart, signOutStart } from '../../redux/user/user.actions';
 
-export const SocialLineBreak = styled.hr`
-	height: 2px !important;
-	color: ${({ theme }) => theme.Shadow};
-`;
+const LoginForm = ({ localSignIn, signOut }) => {
+	const [credentials, setCredentials] = useState({
+		username: '',
+		password: ''
+	});
+	const { username, password } = credentials;
+	const handleChange = event => {
+		const { name, value } = event.target;
+		setCredentials({ ...credentials, [name]: value });
+	};
+	const handleSubmit = event => {
+		event.preventDefault();
+		localSignIn(credentials);
+	};
+	return (
+		<LoginFormContainer>
+			<SocialLogin />
+			<SocialLineBreak />
+			<DescriptionCard title='OR Login with your credentials' linefx={false}>
+				<FormInput
+					type='text'
+					name='username'
+					value={username}
+					handleChange={handleChange}
+					placeholder='username or email'
+					required
+				/>
+				<FormInput
+					type='password'
+					value={password}
+					name='password'
+					handleChange={handleChange}
+					placeholder='password'
+					required
+				/>
+				<ForgotPasswordContainer>
+					<Link to='/passwordRecovery'>Forgot your password?</Link>
+				</ForgotPasswordContainer>
+				<ButtonInput text='Login' handleClick={handleSubmit} />
+				<ButtonInput text='Logout' handleClick={() => signOut()} />
+			</DescriptionCard>
+		</LoginFormContainer>
+	);
+};
 
-const LoginForm = () => (
-	<LoginFormContainer>
-		<SocialLogin />
-		<SocialLineBreak />
-		<DescriptionCard title='OR Login with your credentials' linefx={false}>
-			<FormInput type='text' name='username' placeholder='username or email' />
-			<FormInput type='password' name='password' placeholder='password' />
-			<ForgotPasswordContainer>
-				<Link to='/passwordRecovery'>Forgot your password?</Link>
-			</ForgotPasswordContainer>
-			<ButtonInput text='Login' />
-		</DescriptionCard>
-	</LoginFormContainer>
-);
+const mapDispatchToProps = dispatch => ({
+	localSignIn: ({ username, password }) =>
+		dispatch(localSignInStart({ username: username, password: password })),
+	signOut: () => dispatch(signOutStart())
+});
 
-export default LoginForm;
+export default connect(null, mapDispatchToProps)(LoginForm);

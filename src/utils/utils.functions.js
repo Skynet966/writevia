@@ -1,3 +1,5 @@
+import Axios from 'axios';
+
 //createUID is a function use to generate random id's
 export const generateUUID = () => {
 	let date = new Date().getTime();
@@ -8,3 +10,14 @@ export const generateUUID = () => {
 	});
 	return uid;
 };
+
+//Post Request Handler function
+export const postRequest = (url, dataObj) =>
+	Axios.post(url, dataObj, { withCredentials: true })
+		.then(response => response)
+		.catch(error => error);
+
+export const getRequest = url =>
+	Axios.get(url, { withCredentials: true })
+		.then(response => response)
+		.catch(error => error);

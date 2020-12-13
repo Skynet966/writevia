@@ -57,10 +57,7 @@ const TopNavbar = ({
 			) : (
 				<MenuItem className='fa fa-search' onClick={showSearch} />
 			)}
-			<MenuItem
-				className='fa fa-user'
-				onClick={() => history.push('/create-post')}
-			/>
+			<MenuItem className='fa fa-user' onClick={() => history.push('/test')} />
 			{mode ? (
 				<MenuItem className='fa fa-moon-o moon' onClick={toggleTheme} />
 			) : (

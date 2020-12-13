@@ -5,7 +5,7 @@ export const AppContainer = styled.div`
 `;
 
 export const lightTheme = {
-	Header: '#fffff9',
+	Header: '#fafafa',
 	HeaderText: '#11151c',
 	Body: '#ffffff',
 	BodyText: '#505050',
@@ -21,9 +21,9 @@ export const lightTheme = {
 };
 export const darkTheme = {
 	Header: '#1e1e30',
-	HeaderText: '#fffff9',
+	HeaderText: '#fafafa',
 	Body: '#161625',
-	BodyText: '#fffff9',
+	BodyText: '#fafafa',
 	Footer: '#1e1e30',
 	FooterText: '#d9d9d9',
 	FooterTextBg: '#161625',

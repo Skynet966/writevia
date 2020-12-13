@@ -31,13 +31,23 @@ export const TextContainer = styled.span`
 
 const SocialLogin = () => (
 	<SocialLoginContainer>
-		<SocialBtn media='google'>
+		<SocialBtn
+			media='google'
+			onClick={() =>
+				window.open('http://localhost:3000/auth/google/login', '_self')
+			}
+		>
 			<LogoContainer>
 				<GoogleLogo />
 			</LogoContainer>
 			Continue with Google
 		</SocialBtn>
-		<SocialBtn media='facebook'>
+		<SocialBtn
+			media='facebook'
+			onClick={() =>
+				window.open('http://localhost:3000/auth/facebook/login', '_self')
+			}
+		>
 			<LogoContainer>
 				<FacebookLogo />
 			</LogoContainer>

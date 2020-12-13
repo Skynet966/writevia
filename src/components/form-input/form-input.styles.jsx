@@ -26,7 +26,7 @@ export const Input = styled.input.attrs(({ placeholder, ...otherProps }) => ({
 		box-shadow: ${({ type }) =>
 			type === 'range'
 				? ''
-				: '0px 0px 5px 1px ${({ theme }) => theme.ActiveLink}'};
+				: `0px 0px 5px 1px ${({ theme }) => theme.ActiveLink}`};
 	}
 `;
 
