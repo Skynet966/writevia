@@ -7,6 +7,7 @@ import FooterNavbar from '../../components/footer-navbar/footer-navbar.component
 import Copywrite from '../../components/copywrite/copywrite.component';
 
 import styled from 'styled-components';
+import PasswordRecovery from '../../components/password-recovery/password-recovery.component';
 
 const SignUpForm = lazy(() =>
 	import('../../components/Signup-form/signup-form.component')
@@ -20,6 +21,7 @@ export const AuthLayoutContainer = styled.div`
 	background: #172b4d;
 	z-index: -1;
 	width: 100%;
+	min-height: 100vh;
 `;
 export const AuthHeading = styled.h1`
 	color: white;
@@ -55,6 +57,12 @@ const AuthLayout = () => (
 								path='/user/register'
 								render={() => <AuthPara>Register with writevia</AuthPara>}
 							/>
+							<Route
+								path='/user/password-recovery'
+								render={() => (
+									<AuthPara>Password Recovery for your Account</AuthPara>
+								)}
+							/>
 							<Route path='/' render={() => <Redirect to='/user/login' />} />
 						</Switch>
 					</div>
@@ -65,6 +73,10 @@ const AuthLayout = () => (
 							<Switch>
 								<Route path='/user/login' component={LoginForm} />
 								<Route path='/user/register' component={SignUpForm} />
+								<Route
+									path='/user/password-recovery'
+									component={PasswordRecovery}
+								/>
 							</Switch>
 						</Suspense>
 					</div>

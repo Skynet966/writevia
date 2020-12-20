@@ -13,6 +13,7 @@ import {
 } from './login-form.styles';
 
 import { localSignInStart } from '../../redux/user/user.actions';
+import { TextAndLink, TextLink } from '../Signup-form/signup-form.styles';
 
 const LoginForm = ({ localSignIn }) => {
 	const [credentials, setCredentials] = useState({
@@ -50,9 +51,13 @@ const LoginForm = ({ localSignIn }) => {
 					required
 				/>
 				<ForgotPasswordContainer>
-					<Link to='/passwordRecovery'>Forgot your password?</Link>
+					<Link to='/user/password-recovery'>Forgot your password?</Link>
 				</ForgotPasswordContainer>
 				<ButtonInput text='Login' handleClick={handleSubmit} />
+				<TextAndLink>
+					Have not registred yet?{' '}
+					<TextLink to='/user/register'>Register here</TextLink>
+				</TextAndLink>
 			</DescriptionCard>
 		</LoginFormContainer>
 	);

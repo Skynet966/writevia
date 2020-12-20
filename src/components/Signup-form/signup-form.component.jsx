@@ -1,34 +1,20 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
+import { getCurrentUser, signUpStart } from '../../redux/user/user.actions';
 
 import DescriptionCard from '../description-card/description-card.component';
 import FormInput from '../form-input/form-input.component';
-
-import styled from 'styled-components';
 import ButtonInput from '../button-input/button-input.component';
-import { getCurrentUser, signUpStart } from '../../redux/user/user.actions';
-import { connect } from 'react-redux';
 
-export const SignUpFormContainer = styled.form`
-	padding: 30px;
-	border: 1px solid ${({ theme }) => theme.LineFX};
-	border-radius: 5px;
-	background: ${({ theme }) => theme.Header};
-`;
-export const CheckBoxContainer = styled.div`
-	display: flex;
-	gap: 2px;
-	margin-bottom: 10px;
-`;
-export const CheckBox = styled.input.attrs({ type: 'checkbox' })`
-	width: 30px;
-	height: 18px;
-	margin: 3px;
-	color: ${({ status }) => (status ? '' : 'red')};
-`;
-export const CheckBoxLabel = styled.label`
-	text-align: left;
-	color: ${({ theme }) => theme.BodyText};
-`;
+import {
+	CheckBox,
+	CheckBoxContainer,
+	CheckBoxLabel,
+	SignUpFormContainer,
+	TextAndLink,
+	TextLink
+} from './signup-form.styles';
 
 const SignUpForm = ({ signUp, getUser }) => {
 	const [userInformation, setUserInformation] = useState({
@@ -103,6 +89,10 @@ const SignUpForm = ({ signUp, getUser }) => {
 					</CheckBoxLabel>
 				</CheckBoxContainer>
 				<ButtonInput type='submit' text='Sign Up' />
+				<TextAndLink>
+					If you already have an account?{' '}
+					<TextLink to='/user/login'>Login here</TextLink>
+				</TextAndLink>
 			</DescriptionCard>
 		</SignUpFormContainer>
 	);
