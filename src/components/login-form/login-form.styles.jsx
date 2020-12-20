@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const LoginFormContainer = styled.div`
 	text-align-last: left;
-	padding: 30px;
+	padding: 20px 30px;
 	border: 1px solid ${({ theme }) => theme.LineFX};
 	border-radius: 5px;
 	background: ${({ theme }) => theme.Header};

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { LoaderProvider, Puff } from '@agney/react-loading';
@@ -17,13 +17,13 @@ Axios.defaults.baseURL = 'http://localhost:3000';
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<BrowserRouter>
+			<Router>
 				<PersistGate persistor={persistor}>
 					<LoaderProvider indicator={<Puff width='50' />}>
 						<App />
 					</LoaderProvider>
 				</PersistGate>
-			</BrowserRouter>
+			</Router>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')

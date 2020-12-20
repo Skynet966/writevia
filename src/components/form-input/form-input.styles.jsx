@@ -3,10 +3,7 @@ import styled from 'styled-components';
 export const FormInputContainer = styled.div`
 	margin: 0 0 20px;
 `;
-export const Input = styled.input.attrs(({ placeholder, ...otherProps }) => ({
-	placeholder: placeholder ? 'Enter ' + placeholder : '',
-	...otherProps
-}))`
+export const Input = styled.input`
 	font-family: 'Montserrat', sans-serif;
 	font-size: 1em;
 	font-weight: 400;

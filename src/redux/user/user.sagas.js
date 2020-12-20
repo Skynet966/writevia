@@ -27,7 +27,7 @@ export function* signInWithCredentials({ payload: { username, password } }) {
 
 export function* signOutUser() {
 	try {
-		const { status, data } = yield call(getRequest, '/auth/logout');
+		const { status, data } = yield call(getRequest, '/user/logout');
 		yield status === 200 ? put(signOutSuccess()) : put(signOutSuccess(data));
 	} catch (error) {
 		yield call(signOutFailure(error));

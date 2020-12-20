@@ -12,9 +12,9 @@ import {
 	SocialLineBreak
 } from './login-form.styles';
 
-import { localSignInStart, signOutStart } from '../../redux/user/user.actions';
+import { localSignInStart } from '../../redux/user/user.actions';
 
-const LoginForm = ({ localSignIn, signOut }) => {
+const LoginForm = ({ localSignIn }) => {
 	const [credentials, setCredentials] = useState({
 		username: '',
 		password: ''
@@ -53,7 +53,6 @@ const LoginForm = ({ localSignIn, signOut }) => {
 					<Link to='/passwordRecovery'>Forgot your password?</Link>
 				</ForgotPasswordContainer>
 				<ButtonInput text='Login' handleClick={handleSubmit} />
-				<ButtonInput text='Logout' handleClick={() => signOut()} />
 			</DescriptionCard>
 		</LoginFormContainer>
 	);
@@ -61,8 +60,7 @@ const LoginForm = ({ localSignIn, signOut }) => {
 
 const mapDispatchToProps = dispatch => ({
 	localSignIn: ({ username, password }) =>
-		dispatch(localSignInStart({ username: username, password: password })),
-	signOut: () => dispatch(signOutStart())
+		dispatch(localSignInStart({ username: username, password: password }))
 });
 
 export default connect(null, mapDispatchToProps)(LoginForm);

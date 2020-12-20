@@ -1,49 +1,33 @@
-import React, { Suspense, lazy } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle, { AppContainer } from './App.styles';
 import { selectTheme } from './redux/app/app.selectors';
+import { selectCurrentUser } from './redux/user/user.selectors';
 
-import Header from './containers/header/header.container';
-import LoadingPage from './components/loading-page/loading-page.component';
-import TestPage from './pages/test.page';
-import Footer from './containers/footer/footer.component';
-import CreatePostPage from './pages/create-post-page/create-post-page.page';
+import BaseLayout from './layouts/base/base.layout.component';
+import AuthLayout from './layouts/auth/auth.layout.component';
 
-const HomePage = lazy(() => import('./pages/home-page/home-page.component'));
-const BlogsPage = lazy(() => import('./pages/blogs-page/blogs-page.component'));
-const ContactPage = lazy(() =>
-	import('./pages/contact-page/contact-page.component')
-);
-const TeamPage = lazy(() => import('./pages/team-page/team-page.component'));
-const AboutPage = lazy(() => import('./pages/about-page/about-page.component'));
-
-const App = ({ theme }) => (
+const App = ({ theme, user }) => (
 	<ThemeProvider theme={theme}>
 		<GlobalStyle />
 		<AppContainer>
-			<Header />
-			<Suspense fallback={<LoadingPage />}>
-				<Switch>
-					<Route exact path='/' component={HomePage} />
-					<Route exact path='/blogs' component={BlogsPage} />
-					<Route exact path='/contact-us' component={ContactPage} />
-					<Route exact path='/our-team' component={TeamPage} />
-					<Route exact path='/about-us' component={AboutPage} />
-					<Route exact path='/test' component={TestPage} />
-					<Route exact path='/create-post' component={CreatePostPage} />
-				</Switch>
-			</Suspense>
-			<Footer />
+			<Switch>
+				<Route
+					path='/user'
+					render={() => (user ? <Redirect to='/' /> : <AuthLayout />)}
+				/>
+				<Route exact path='*' component={BaseLayout} />
+			</Switch>
 		</AppContainer>
 	</ThemeProvider>
 );
 
 const mapStateToProps = createStructuredSelector({
-	theme: selectTheme
+	theme: selectTheme,
+	user: selectCurrentUser
 });
 
 export default connect(mapStateToProps)(App);
