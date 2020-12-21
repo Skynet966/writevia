@@ -10,7 +10,10 @@ import {
 	signOutFailure,
 	signOutSuccess,
 	signUpSuccess,
-	signUPFailure
+	signUPFailure,
+	verificationSuccess,
+	verificationFailure,
+	verificationCodeResendFailure
 } from './user.actions';
 
 export function* signInWithCredentials({ payload: { username, password } }) {
@@ -36,8 +39,13 @@ export function* signOutUser() {
 
 export function* signUp({ payload }) {
 	try {
-		const { data, status } = yield call(postRequest, '/user/register', payload);
-		yield status === 201 ? put(signUpSuccess(data)) : put(signUPFailure(data));
+		const {
+			data: { user, message },
+			status
+		} = yield call(postRequest, '/user/register', payload);
+		yield status === 201
+			? put(signUpSuccess(user))
+			: put(signUPFailure(message));
 	} catch (error) {
 		yield put(signUPFailure(error));
 	}
@@ -49,6 +57,35 @@ export function* getUser() {
 		console.log(data, status);
 	} catch (error) {
 		console.error(error);
+	}
+}
+
+export function* userEmailVerification({ payload }) {
+	try {
+		console.log(payload);
+		const {
+			data: { user, message },
+			status
+		} = yield call(postRequest, '/user/verification', { otp: payload });
+		yield status === 202
+			? put(verificationSuccess(user))
+			: put(verificationFailure(message));
+	} catch (error) {
+		yield put(verificationFailure(error));
+	}
+}
+
+export function* userEmailVerificationCodeResend() {
+	try {
+		const {
+			data: { message },
+			status
+		} = yield call(getRequest, '/user/verification/resend');
+		yield status === 205
+			? console.log(message)
+			: put(verificationCodeResendFailure(message));
+	} catch (error) {
+		yield put(verificationCodeResendFailure(error));
 	}
 }
 
@@ -68,11 +105,27 @@ export function* onGetCurrentUser() {
 	yield takeLatest(UserActionTypes.GET_CURRENT_USER, getUser);
 }
 
+export function* onVerificationStart() {
+	yield takeLatest(
+		UserActionTypes.USER_VERIFICATION_START,
+		userEmailVerification
+	);
+}
+
+export function* onVerificationCodeResend() {
+	yield takeLatest(
+		UserActionTypes.VERIFICATION_CODE_RESEND_START,
+		userEmailVerificationCodeResend
+	);
+}
+
 export function* userSagas() {
 	yield all([
 		call(onlocalSignInStart),
 		call(onSignOutStart),
 		call(onSignUpStart),
-		call(onGetCurrentUser)
+		call(onGetCurrentUser),
+		call(onVerificationStart),
+		call(onVerificationCodeResend)
 	]);
 }

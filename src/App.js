@@ -15,9 +15,20 @@ const App = ({ theme, user }) => (
 		<GlobalStyle />
 		<AppContainer>
 			<Switch>
+				<Route path='/user/verification' component={AuthLayout} />
 				<Route
 					path='/user'
-					render={() => (user ? <Redirect to='/' /> : <AuthLayout />)}
+					render={() =>
+						user ? (
+							user.verified ? (
+								<Redirect to='/' />
+							) : (
+								<Redirect to='/user/verification' />
+							)
+						) : (
+							<AuthLayout user={user} />
+						)
+					}
 				/>
 				<Route exact path='*' component={BaseLayout} />
 			</Switch>

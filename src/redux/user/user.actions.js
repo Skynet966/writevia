@@ -46,3 +46,27 @@ export const signUPFailure = error => ({
 export const getCurrentUser = () => ({
 	type: UserActionTypes.GET_CURRENT_USER
 });
+
+export const verificationStart = code => ({
+	type: UserActionTypes.USER_VERIFICATION_START,
+	payload: code
+});
+
+export const verificationSuccess = user => ({
+	type: UserActionTypes.USER_VERIFICATION_SUCCESS,
+	payload: user
+});
+
+export const verificationFailure = error => ({
+	type: UserActionTypes.USER_VERIFICATION_FAILURE,
+	payload: error
+});
+
+export const verificationCodeResend = () => ({
+	type: UserActionTypes.VERIFICATION_CODE_RESEND_START
+});
+
+export const verificationCodeResendFailure = error => ({
+	type: UserActionTypes.VERIFICATION_CODE_RESEND_FAILURE,
+	payload: error
+});

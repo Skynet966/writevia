@@ -8,6 +8,7 @@ import Copywrite from '../../components/copywrite/copywrite.component';
 
 import styled from 'styled-components';
 import PasswordRecovery from '../../components/password-recovery/password-recovery.component';
+import EmailVerification from '../../components/email-verification/email-verification.component';
 
 const SignUpForm = lazy(() =>
 	import('../../components/Signup-form/signup-form.component')
@@ -39,7 +40,7 @@ export const GradientHeader = styled.div`
 	background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%);
 `;
 
-const AuthLayout = () => (
+const AuthLayout = ({ user }) => (
 	<AuthLayoutContainer>
 		<GradientHeader />
 		<div>
@@ -63,6 +64,16 @@ const AuthLayout = () => (
 									<AuthPara>Password Recovery for your Account</AuthPara>
 								)}
 							/>
+							<Route
+								path='/user/verification'
+								render={() =>
+									user ? (
+										<AuthPara>email verification for your Account</AuthPara>
+									) : (
+										<Redirect to='/user/login' />
+									)
+								}
+							/>
 							<Route path='/' render={() => <Redirect to='/user/login' />} />
 						</Switch>
 					</div>
@@ -76,6 +87,10 @@ const AuthLayout = () => (
 								<Route
 									path='/user/password-recovery'
 									component={PasswordRecovery}
+								/>
+								<Route
+									path='/user/verification'
+									component={EmailVerification}
 								/>
 							</Switch>
 						</Suspense>
