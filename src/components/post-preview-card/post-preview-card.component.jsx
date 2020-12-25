@@ -128,7 +128,7 @@ const PostPreviewCard = ({ size }) => (
 				<PostMetaData>
 					<Data>
 						<span className='fa fa-user-o' />
-						<a href='#'> Satish Kumar Yadav</a>
+						<span> Satish Kumar Yadav</span>
 					</Data>
 				</PostMetaData>
 			</PostCardFooter>

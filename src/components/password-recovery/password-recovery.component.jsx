@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 import styled from 'styled-components';
 import { screenSize } from '../../App.styles';
+import { passwordRecoveryStart } from '../../redux/user/user.actions';
 import ButtonInput from '../button-input/button-input.component';
 import FormInput from '../form-input/form-input.component';
 import {
@@ -17,14 +19,14 @@ export const PasswordRecoveryCard = styled(SignUpFormContainer)`
 	}
 `;
 
-const PasswordRecovery = () => {
+const PasswordRecovery = ({ recoverPassword }) => {
 	const [email, setEmail] = useState('');
 	const handleChange = ({ target: { value } }) => {
 		setEmail(value);
 	};
 	const handleSubmit = event => {
 		event.preventDefault();
-		console.log(email);
+		recoverPassword(email);
 	};
 	return (
 		<PasswordRecoveryCard onSubmit={handleSubmit}>
@@ -43,4 +45,8 @@ const PasswordRecovery = () => {
 	);
 };
 
-export default PasswordRecovery;
+const mapDispatchToProps = dispatch => ({
+	recoverPassword: email => dispatch(passwordRecoveryStart(email))
+});
+
+export default connect(null, mapDispatchToProps)(PasswordRecovery);

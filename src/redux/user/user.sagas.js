@@ -13,16 +13,28 @@ import {
 	signUPFailure,
 	verificationSuccess,
 	verificationFailure,
-	verificationCodeResendFailure
+	verificationCodeResendFailure,
+	passwordRecoveryFailure,
+	passwordRecoverySuccess,
+	passwordRecoveryVerificationFailure,
+	passwordRecoveryVerificationSuccess,
+	passwordResetFailure,
+	passwordResetSuccess
 } from './user.actions';
 
 export function* signInWithCredentials({ payload: { username, password } }) {
 	try {
-		const { data } = yield call(postRequest, '/auth/local/login', {
+		const {
+			data: { user },
+			status
+		} = yield call(postRequest, '/auth/local/login', {
 			username,
 			password
 		});
-		yield put(signInSuccess(data));
+
+		yield status === 202
+			? put(signInSuccess(user))
+			: put(signInFailure({ message: 'user not found' }));
 	} catch (error) {
 		yield put(signInFailure(error));
 	}
@@ -53,8 +65,13 @@ export function* signUp({ payload }) {
 
 export function* getUser() {
 	try {
-		const { data, status } = yield call(getRequest, '/user/get');
-		console.log(data, status);
+		const {
+			data: { user },
+			status
+		} = yield call(getRequest, '/user/get');
+		yield status === 202
+			? put(signInSuccess(user))
+			: console.log('--do login for more feature--');
 	} catch (error) {
 		console.error(error);
 	}
@@ -89,6 +106,51 @@ export function* userEmailVerificationCodeResend() {
 	}
 }
 
+export function* userAccountPasswordRecovery({ payload }) {
+	try {
+		console.log(payload);
+		const {
+			data: { message },
+			status
+		} = yield call(postRequest, '/user/passwordRecovery', { email: payload });
+		yield status === 205
+			? put(passwordRecoverySuccess(message))
+			: put(passwordRecoveryFailure(message));
+	} catch (error) {
+		yield put(passwordRecoveryFailure(error));
+	}
+}
+
+export function* userAccountPasswordRecoveryVerification({ payload }) {
+	try {
+		const {
+			data: { user, message },
+			status
+		} = yield call(postRequest, '/user/passwordRecoveryVerification', {
+			otp: payload
+		});
+		yield status === 202
+			? put(passwordRecoveryVerificationSuccess(user))
+			: put(passwordRecoveryVerificationFailure(message));
+	} catch (error) {
+		yield put(passwordRecoveryVerificationFailure(error));
+	}
+}
+
+export function* userPasswordReset({ payload }) {
+	try {
+		const {
+			data: { user, message },
+			status
+		} = yield call(postRequest, '/user/passwordReset', { password: payload });
+		yield status === 201
+			? put(passwordResetSuccess(user))
+			: put(passwordResetFailure(message));
+	} catch (error) {
+		yield put(passwordResetFailure(error));
+	}
+}
+
 export function* onlocalSignInStart() {
 	yield takeLatest(UserActionTypes.LOCAL_SIGN_IN_START, signInWithCredentials);
 }
@@ -119,6 +181,24 @@ export function* onVerificationCodeResend() {
 	);
 }
 
+export function* onPasswordRecoveryStart() {
+	yield takeLatest(
+		UserActionTypes.PASSWORD_RECOVERY_START,
+		userAccountPasswordRecovery
+	);
+}
+
+export function* onPasswordRecoveryVerificationStart() {
+	yield takeLatest(
+		UserActionTypes.PASSWORD_RECOVERY_VERIFICATION_START,
+		userAccountPasswordRecoveryVerification
+	);
+}
+
+export function* onPasswordResetStart() {
+	yield takeLatest(UserActionTypes.PASSWORD_RESET_START, userPasswordReset);
+}
+
 export function* userSagas() {
 	yield all([
 		call(onlocalSignInStart),
@@ -126,6 +206,9 @@ export function* userSagas() {
 		call(onSignUpStart),
 		call(onGetCurrentUser),
 		call(onVerificationStart),
-		call(onVerificationCodeResend)
+		call(onVerificationCodeResend),
+		call(onPasswordRecoveryStart),
+		call(onPasswordRecoveryVerificationStart),
+		call(onPasswordResetStart)
 	]);
 }

@@ -70,3 +70,48 @@ export const verificationCodeResendFailure = error => ({
 	type: UserActionTypes.VERIFICATION_CODE_RESEND_FAILURE,
 	payload: error
 });
+
+export const passwordRecoveryStart = email => ({
+	type: UserActionTypes.PASSWORD_RECOVERY_START,
+	payload: email
+});
+
+export const passwordRecoverySuccess = message => ({
+	type: UserActionTypes.PASSWORD_RECOVERY_SUCCESS,
+	payload: message
+});
+
+export const passwordRecoveryFailure = error => ({
+	type: UserActionTypes.PASSWORD_RECOVERY_FAILURE,
+	payload: error
+});
+
+export const passwordRecoveryVerificationStart = code => ({
+	type: UserActionTypes.PASSWORD_RECOVERY_VERIFICATION_START,
+	payload: code
+});
+
+export const passwordRecoveryVerificationSuccess = user => ({
+	type: UserActionTypes.PASSWORD_RECOVERY_VERIFICATION_SUCCESS,
+	payload: user
+});
+
+export const passwordRecoveryVerificationFailure = error => ({
+	type: UserActionTypes.PASSWORD_RECOVERY_VERIFICATION_FAILURE,
+	payload: error
+});
+
+export const passwordResetStart = password => ({
+	type: UserActionTypes.PASSWORD_RESET_START,
+	payload: password
+});
+
+export const passwordResetSuccess = user => ({
+	type: UserActionTypes.PASSWORD_RESET_SUCCESS,
+	payload: user
+});
+
+export const passwordResetFailure = error => ({
+	type: UserActionTypes.PASSWORD_RESET_FALIUR,
+	payload: error
+});

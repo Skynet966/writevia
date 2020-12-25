@@ -9,6 +9,15 @@ import Copywrite from '../../components/copywrite/copywrite.component';
 import styled from 'styled-components';
 import PasswordRecovery from '../../components/password-recovery/password-recovery.component';
 import EmailVerification from '../../components/email-verification/email-verification.component';
+import PasswordRecoveryVerification from '../../components/password-recovery-verifciation/password-recovery-verification.component';
+import { createStructuredSelector } from 'reselect';
+import {
+	selectCurrentUser,
+	selectRecovery,
+	selectRedirect
+} from '../../redux/user/user.selectors';
+import { connect } from 'react-redux';
+import PasswordReset from '../../components/password-reset/password-reset.component';
 
 const SignUpForm = lazy(() =>
 	import('../../components/Signup-form/signup-form.component')
@@ -40,7 +49,7 @@ export const GradientHeader = styled.div`
 	background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%);
 `;
 
-const AuthLayout = ({ user }) => (
+const AuthLayout = ({ user, redirect }) => (
 	<AuthLayoutContainer>
 		<GradientHeader />
 		<div>
@@ -64,7 +73,8 @@ const AuthLayout = ({ user }) => (
 									<AuthPara>Password Recovery for your Account</AuthPara>
 								)}
 							/>
-							<Route
+							{/* <Route
+								exact
 								path='/user/verification'
 								render={() =>
 									user ? (
@@ -73,7 +83,7 @@ const AuthLayout = ({ user }) => (
 										<Redirect to='/user/login' />
 									)
 								}
-							/>
+							/> */}
 							<Route path='/' render={() => <Redirect to='/user/login' />} />
 						</Switch>
 					</div>
@@ -86,7 +96,17 @@ const AuthLayout = ({ user }) => (
 								<Route path='/user/register' component={SignUpForm} />
 								<Route
 									path='/user/password-recovery'
-									component={PasswordRecovery}
+									render={() =>
+										redirect ? (
+											false ? (
+												<PasswordReset />
+											) : (
+												<PasswordRecoveryVerification />
+											)
+										) : (
+											<PasswordRecovery />
+										)
+									}
 								/>
 								<Route
 									path='/user/verification'
@@ -109,4 +129,9 @@ const AuthLayout = ({ user }) => (
 	</AuthLayoutContainer>
 );
 
-export default AuthLayout;
+const mapStateToProps = createStructuredSelector({
+	redirect: selectRedirect,
+	user: selectCurrentUser
+});
+
+export default connect(mapStateToProps)(AuthLayout);

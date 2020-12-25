@@ -1,4 +1,4 @@
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { ThemeProvider } from 'styled-components';
@@ -9,36 +9,34 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 
 import BaseLayout from './layouts/base/base.layout.component';
 import AuthLayout from './layouts/auth/auth.layout.component';
+import { getCurrentUser } from './redux/user/user.actions';
+import { useEffect } from 'react';
 
-const App = ({ theme, user }) => (
-	<ThemeProvider theme={theme}>
-		<GlobalStyle />
-		<AppContainer>
-			<Switch>
-				<Route path='/user/verification' component={AuthLayout} />
-				<Route
-					path='/user'
-					render={() =>
-						user ? (
-							user.verified ? (
-								<Redirect to='/' />
-							) : (
-								<Redirect to='/user/verification' />
-							)
-						) : (
-							<AuthLayout user={user} />
-						)
-					}
-				/>
-				<Route exact path='*' component={BaseLayout} />
-			</Switch>
-		</AppContainer>
-	</ThemeProvider>
-);
+const App = ({ theme, user, getCurrentUser }) => {
+	useEffect(() => {
+		getCurrentUser();
+	}, [getCurrentUser]);
+	return (
+		<ThemeProvider theme={theme}>
+			<GlobalStyle />
+			<AppContainer>
+				<Switch>
+					{/* <Route exact path='/user/verification' render={() => <AuthLayout />} /> */}
+					<Route path='/user' render={() => <AuthLayout />} />
+					<Route exact path='*' component={BaseLayout} />
+				</Switch>
+			</AppContainer>
+		</ThemeProvider>
+	);
+};
 
 const mapStateToProps = createStructuredSelector({
 	theme: selectTheme,
 	user: selectCurrentUser
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => ({
+	getCurrentUser: () => dispatch(getCurrentUser())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
