@@ -65,7 +65,7 @@ const TopNavbar = ({
 
 				<MenuItem
 					className='fa fa-user'
-					onClick={() => setVisibility(!visibility)}
+					onMouseEnter={() => setVisibility(true)}
 				/>
 				{mode ? (
 					<MenuItem className='fa fa-moon-o moon' onClick={toggleTheme} />
@@ -87,6 +87,7 @@ const TopNavbar = ({
 					/>
 				) : (
 					<DropdownMenu
+						handleBlur={() => setVisibility(false)}
 						title='Welecome!'
 						options={[
 							{ name: 'Sign In', link: '/user/login', icon: 'fa-sign-in' },

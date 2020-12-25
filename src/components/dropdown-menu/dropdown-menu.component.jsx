@@ -79,10 +79,11 @@ const DropdownMenu = ({
 	fOption,
 	fIcon,
 	handleClick,
-	visibility
+	visibility,
+	handleBlur
 }) => {
 	return (
-		<DropdownMenuCard visibility={visibility}>
+		<DropdownMenuCard onMouseLeave={handleBlur} visibility={visibility}>
 			<CardHeader>
 				<Title>{title}</Title>
 			</CardHeader>

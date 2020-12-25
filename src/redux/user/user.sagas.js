@@ -19,21 +19,18 @@ import {
 	passwordRecoveryVerificationFailure,
 	passwordRecoveryVerificationSuccess,
 	passwordResetFailure,
-	passwordResetSuccess
+	passwordResetSuccess,
+	getCurrentUser
 } from './user.actions';
 
 export function* signInWithCredentials({ payload: { username, password } }) {
 	try {
-		const {
-			data: { user },
-			status
-		} = yield call(postRequest, '/auth/local/login', {
+		const { status } = yield call(postRequest, '/auth/local/login', {
 			username,
 			password
 		});
-
 		yield status === 202
-			? put(signInSuccess(user))
+			? put(getCurrentUser())
 			: put(signInFailure({ message: 'user not found' }));
 	} catch (error) {
 		yield put(signInFailure(error));
