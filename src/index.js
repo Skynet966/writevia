@@ -12,7 +12,10 @@ import 'bootstrap/dist/js/bootstrap.bundle';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-Axios.defaults.baseURL = 'http://localhost:3000';
+Axios.defaults.baseURL =
+	!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+		? 'http://localhost:3000'
+		: 'https://writevia-frontend.herokuapp.com';
 
 ReactDOM.render(
 	<React.StrictMode>

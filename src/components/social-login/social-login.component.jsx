@@ -28,14 +28,15 @@ export const LogoContainer = styled.span`
 export const TextContainer = styled.span`
 	color: ${({ theme }) => theme.BodyText};
 `;
-
+const url =
+	!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+		? 'http://localhost:3000'
+		: 'https://writevia-frontend.herokuapp.com';
 const SocialLogin = () => (
 	<SocialLoginContainer>
 		<SocialBtn
 			media='google'
-			onClick={() =>
-				window.open('http://localhost:3000/auth/google/login', '_self')
-			}
+			onClick={() => window.open(`${url}/auth/google/login`, '_self')}
 		>
 			<LogoContainer>
 				<GoogleLogo />
@@ -44,9 +45,7 @@ const SocialLogin = () => (
 		</SocialBtn>
 		<SocialBtn
 			media='facebook'
-			onClick={() =>
-				window.open('http://localhost:3000/auth/facebook/login', '_self')
-			}
+			onClick={() => window.open(`${url}/auth/facebook/login`, '_self')}
 		>
 			<LogoContainer>
 				<FacebookLogo />
