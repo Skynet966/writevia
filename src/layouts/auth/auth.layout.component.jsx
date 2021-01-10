@@ -47,6 +47,7 @@ export const GradientHeader = styled.div`
 `;
 
 const AuthLayout = ({ user, recovery }) => {
+	console.log(process.env.NODE_ENV);
 	recovery.status ? (
 		<Redirect to='/user/password-recovery' />
 	) : user && user.verified ? (
