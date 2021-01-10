@@ -15,7 +15,7 @@ import reportWebVitals from './reportWebVitals';
 Axios.defaults.baseURL =
 	!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
 		? 'http://localhost:3000'
-		: 'https://writevia-frontend.herokuapp.com';
+		: 'https://writevia-backend.herokuapp.com';
 
 ReactDOM.render(
 	<React.StrictMode>

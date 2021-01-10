@@ -31,7 +31,7 @@ export const TextContainer = styled.span`
 const url =
 	!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
 		? 'http://localhost:3000'
-		: 'https://writevia-frontend.herokuapp.com';
+		: 'https://writevia-backend.herokuapp.com';
 const SocialLogin = () => (
 	<SocialLoginContainer>
 		<SocialBtn
