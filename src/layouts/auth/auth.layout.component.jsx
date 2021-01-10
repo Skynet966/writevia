@@ -70,8 +70,8 @@ const AuthLayout = ({ user, recovery }) => {
 								<Route
 									path='/user/register'
 									render={() =>
-										user ? (
-											<Redirect to='/' />
+										user && !user.verified ? (
+											<Redirect to='/user/verification' />
 										) : (
 											<AuthPara>Register with writevia</AuthPara>
 										)
