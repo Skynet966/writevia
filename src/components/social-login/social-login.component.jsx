@@ -28,7 +28,10 @@ export const LogoContainer = styled.span`
 export const TextContainer = styled.span`
 	color: ${({ theme }) => theme.BodyText};
 `;
-const url = 'https://writevia-backend.herokuapp.com';
+const url =
+	!process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+		? 'http://localhost:3000'
+		: 'https://writevia-backend.herokuapp.com';
 const SocialLogin = () => (
 	<SocialLoginContainer>
 		<SocialBtn
