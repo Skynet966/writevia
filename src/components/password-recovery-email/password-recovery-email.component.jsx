@@ -10,7 +10,7 @@ import {
 	SignUpFormContainer,
 	TextAndLink,
 	TextLink
-} from '../signup-form/signup-form.styles';
+} from '../gnup-form/signup-form.styles';
 
 export const PasswordRecoveryCard = styled(SignUpFormContainer)`
 	margin-bottom: 32vh;

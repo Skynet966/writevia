@@ -16,9 +16,9 @@ import {
 } from '../../redux/user/user.selectors';
 import { connect } from 'react-redux';
 
-// const SignUpForm = lazy(() =>
-// 	import('../../components/signup-form/signup-form.component')
-// );
+const SignUpForm = lazy(() =>
+	import('../../components/gnup-form/signup-form.component')
+);
 const LoginForm = lazy(() =>
 	import('../../components/login-form/login-form.component')
 );
@@ -74,7 +74,7 @@ const AuthLayout = ({ user, recovery }) => {
 										)
 									}
 								/>
-								{/* <Route
+								<Route
 									path='/user/register'
 									render={() =>
 										user ? (
@@ -83,7 +83,7 @@ const AuthLayout = ({ user, recovery }) => {
 											<AuthPara>Register with writevia</AuthPara>
 										)
 									}
-								/> */}
+								/>
 								<Route
 									path='/user/password-recovery'
 									render={() =>
@@ -119,7 +119,7 @@ const AuthLayout = ({ user, recovery }) => {
 							<Suspense fallback={<LoadingPage />}>
 								<Switch>
 									<Route path='/user/login' component={LoginForm} />
-									{/* <Route path='/user/register' component={SignUpForm} /> */}
+									<Route path='/user/register' component={SignUpForm} />
 									<Route
 										path='/user/password-recovery'
 										render={() =>
