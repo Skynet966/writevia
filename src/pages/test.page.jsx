@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from '../components/login-form/login-form.component';
-import SignUpForm from '../components/Signup-form/signup-form.component';
+import SignUpForm from '../components/signup-form/signup-form.component';
 
 const TestPage = () => (
 	<div className='container'>
