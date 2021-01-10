@@ -196,4 +196,6 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
+export const Form = styled.form``;
+
 export default GlobalStyle;

@@ -7,20 +7,17 @@ import FooterNavbar from '../../components/footer-navbar/footer-navbar.component
 import Copywrite from '../../components/copywrite/copywrite.component';
 
 import styled from 'styled-components';
-import PasswordRecovery from '../../components/password-recovery/password-recovery.component';
+import PasswordRecovery from '../../containers/password-recovery/password-recovery.container.component';
 import EmailVerification from '../../components/email-verification/email-verification.component';
-import PasswordRecoveryVerification from '../../components/password-recovery-verifciation/password-recovery-verification.component';
 import { createStructuredSelector } from 'reselect';
 import {
 	selectCurrentUser,
-	selectRecovery,
-	selectRedirect
+	selectRecovery
 } from '../../redux/user/user.selectors';
 import { connect } from 'react-redux';
-import PasswordReset from '../../components/password-reset/password-reset.component';
 
 const SignUpForm = lazy(() =>
-	import('../../components/Signup-form/signup-form.component')
+	import('../../components/signup-form/signup-form.component')
 );
 const LoginForm = lazy(() =>
 	import('../../components/login-form/login-form.component')
@@ -49,89 +46,111 @@ export const GradientHeader = styled.div`
 	background: linear-gradient(87deg, #5e72e4 0, #825ee4 100%);
 `;
 
-const AuthLayout = ({ user, redirect }) => (
-	<AuthLayoutContainer>
-		<GradientHeader />
-		<div>
-			<AuthHeader />
-			<div className='container'>
-				<div className='row'>
-					<div className='col'>
-						<AuthHeading>Welcome!</AuthHeading>
-						<Switch>
-							<Route
-								path='/user/login'
-								render={() => <AuthPara>login here for writevia</AuthPara>}
-							/>
-							<Route
-								path='/user/register'
-								render={() => <AuthPara>Register with writevia</AuthPara>}
-							/>
-							<Route
-								path='/user/password-recovery'
-								render={() => (
-									<AuthPara>Password Recovery for your Account</AuthPara>
-								)}
-							/>
-							{/* <Route
-								exact
-								path='/user/verification'
-								render={() =>
-									user ? (
-										<AuthPara>email verification for your Account</AuthPara>
-									) : (
-										<Redirect to='/user/login' />
-									)
-								}
-							/> */}
-							<Route path='/' render={() => <Redirect to='/user/login' />} />
-						</Switch>
-					</div>
-				</div>
-				<div className='row justify-content-center mb-3'>
-					<div className='col-md-5'>
-						<Suspense fallback={<LoadingPage />}>
+const AuthLayout = ({ user, recovery }) => {
+	recovery.status ? (
+		<Redirect to='/user/password-recovery' />
+	) : user && user.verified ? (
+		<Redirect to='/' />
+	) : (
+		<Redirect to='/user/verification' />
+	);
+	return (
+		<AuthLayoutContainer>
+			<GradientHeader />
+			<div>
+				<AuthHeader />
+				<div className='container'>
+					<div className='row'>
+						<div className='col'>
+							<AuthHeading>Welcome!</AuthHeading>
 							<Switch>
-								<Route path='/user/login' component={LoginForm} />
-								<Route path='/user/register' component={SignUpForm} />
 								<Route
-									path='/user/password-recovery'
+									path='/user/login'
 									render={() =>
-										redirect ? (
-											false ? (
-												<PasswordReset />
-											) : (
-												<PasswordRecoveryVerification />
-											)
+										user ? (
+											<Redirect to='/' />
 										) : (
-											<PasswordRecovery />
+											<AuthPara>login here for writevia</AuthPara>
 										)
 									}
 								/>
 								<Route
+									path='/user/register'
+									render={() =>
+										user ? (
+											<Redirect to='/' />
+										) : (
+											<AuthPara>Register with writevia</AuthPara>
+										)
+									}
+								/>
+								<Route
+									path='/user/password-recovery'
+									render={() =>
+										user ? (
+											<Redirect to='/' />
+										) : (
+											<AuthPara>Password Recovery for your Account</AuthPara>
+										)
+									}
+								/>
+								<Route
+									exact
 									path='/user/verification'
-									component={EmailVerification}
+									render={() =>
+										user && user.verified ? (
+											<Redirect to='/' />
+										) : (
+											<AuthPara>email verification for your Account</AuthPara>
+										)
+									}
+								/>
+								<Route
+									path='/'
+									render={() =>
+										user ? <Redirect to='/' /> : <Redirect to='/user/login' />
+									}
 								/>
 							</Switch>
-						</Suspense>
+						</div>
 					</div>
-				</div>
-				<div className='row'>
-					<div className='col-md-6 order-md-last'>
-						<FooterNavbar />
+					<div className='row justify-content-center mb-3'>
+						<div className='col-md-5'>
+							<Suspense fallback={<LoadingPage />}>
+								<Switch>
+									<Route path='/user/login' component={LoginForm} />
+									<Route path='/user/register' component={SignUpForm} />
+									<Route
+										path='/user/password-recovery'
+										render={() =>
+											user ? <Redirect to='/' /> : <PasswordRecovery />
+										}
+									/>
+									<Route
+										path='/user/verification'
+										component={EmailVerification}
+									/>
+								</Switch>
+							</Suspense>
+						</div>
 					</div>
-					<div className='col-md-6 order-md-first'>
-						<Copywrite />
+					<div className='row'>
+						<div className='col-md-6 order-md-last'>
+							<FooterNavbar />
+						</div>
+						<div className='col-md-6 order-md-first'>
+							<Copywrite />
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</AuthLayoutContainer>
-);
+		</AuthLayoutContainer>
+	);
+};
 
 const mapStateToProps = createStructuredSelector({
-	redirect: selectRedirect,
-	user: selectCurrentUser
+	user: selectCurrentUser,
+	recovery: selectRecovery
 });
 
 export default connect(mapStateToProps)(AuthLayout);

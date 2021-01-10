@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ButtonInput from '../button-input/button-input.component';
 import FormInput from '../form-input/form-input.component';
-import { PasswordRecoveryCard } from '../password-recovery/password-recovery.component';
-import { TextAndLink, TextLink } from '../Signup-form/signup-form.styles';
+import { PasswordRecoveryCard } from '../password-recovery-email/password-recovery-email.component';
+import { TextAndLink, TextLink } from '../signup-form/signup-form.styles';
 
 export const VerificationCardContainer = styled(PasswordRecoveryCard)``;
 export const ResendBtn = styled(TextLink)`

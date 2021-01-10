@@ -9,8 +9,9 @@ import { selectCurrentUser } from './redux/user/user.selectors';
 
 import BaseLayout from './layouts/base/base.layout.component';
 import AuthLayout from './layouts/auth/auth.layout.component';
-import { getCurrentUser } from './redux/user/user.actions';
+import { getCurrentUserStart } from './redux/user/user.actions';
 import { useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 
 const App = ({ theme, user, getCurrentUser }) => {
 	useEffect(() => {
@@ -21,8 +22,7 @@ const App = ({ theme, user, getCurrentUser }) => {
 			<GlobalStyle />
 			<AppContainer>
 				<Switch>
-					{/* <Route exact path='/user/verification' render={() => <AuthLayout />} /> */}
-					<Route path='/user' render={() => <AuthLayout />} />
+					<Route path='/user' component={AuthLayout} />
 					<Route exact path='*' component={BaseLayout} />
 				</Switch>
 			</AppContainer>
@@ -36,7 +36,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-	getCurrentUser: () => dispatch(getCurrentUser())
+	getCurrentUser: () => dispatch(getCurrentUserStart())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

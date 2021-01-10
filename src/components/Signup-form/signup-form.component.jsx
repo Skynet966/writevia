@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { getCurrentUser, signUpStart } from '../../redux/user/user.actions';
+import {
+	getCurrentUserStart,
+	signUpStart
+} from '../../redux/user/user.actions';
 
 import DescriptionCard from '../description-card/description-card.component';
 import FormInput from '../form-input/form-input.component';
 import ButtonInput from '../button-input/button-input.component';
-
 import {
 	CheckBox,
 	CheckBoxContainer,
@@ -100,7 +102,7 @@ const SignUpForm = ({ signUp, getUser }) => {
 
 const mapDispatchToProps = dispatch => ({
 	signUp: userInformation => dispatch(signUpStart(userInformation)),
-	getUser: () => dispatch(getCurrentUser())
+	getUser: () => dispatch(getCurrentUserStart())
 });
 
 export default connect(null, mapDispatchToProps)(SignUpForm);

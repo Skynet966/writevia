@@ -7,12 +7,12 @@ export const selectCurrentUser = createSelector(
 	user => user.currentUser
 );
 
-export const selectRedirect = createSelector(
-	[selectUser],
-	user => user.redirect
+export const selectVerified = createSelector(
+	[selectCurrentUser],
+	user => user.verified
 );
 
 export const selectRecovery = createSelector(
 	[selectUser],
-	user => user.currentUser.recovery
+	user => user.recovery
 );

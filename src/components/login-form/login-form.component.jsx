@@ -13,7 +13,8 @@ import {
 } from './login-form.styles';
 
 import { localSignInStart } from '../../redux/user/user.actions';
-import { TextAndLink, TextLink } from '../Signup-form/signup-form.styles';
+import { TextAndLink, TextLink } from '../signup-form/signup-form.styles';
+import { Form } from '../../App.styles';
 
 const LoginForm = ({ localSignIn }) => {
 	const [credentials, setCredentials] = useState({
@@ -34,26 +35,28 @@ const LoginForm = ({ localSignIn }) => {
 			<SocialLogin />
 			<SocialLineBreak />
 			<DescriptionCard title='OR Login with your credentials' linefx={false}>
-				<FormInput
-					type='text'
-					name='username'
-					value={username}
-					handleChange={handleChange}
-					placeholder='username or email'
-					required
-				/>
-				<FormInput
-					type='password'
-					value={password}
-					name='password'
-					handleChange={handleChange}
-					placeholder='password'
-					required
-				/>
-				<ForgotPasswordContainer>
-					<Link to='/user/password-recovery'>Forgot your password?</Link>
-				</ForgotPasswordContainer>
-				<ButtonInput text='Login' handleClick={handleSubmit} />
+				<Form onSubmit={handleSubmit}>
+					<FormInput
+						type='text'
+						name='username'
+						value={username}
+						handleChange={handleChange}
+						placeholder='username or email'
+						required
+					/>
+					<FormInput
+						type='password'
+						value={password}
+						name='password'
+						handleChange={handleChange}
+						placeholder='password'
+						required
+					/>
+					<ForgotPasswordContainer>
+						<Link to='/user/password-recovery'>Forgot your password?</Link>
+					</ForgotPasswordContainer>
+					<ButtonInput type='submit' text='Login' />
+				</Form>
 				<TextAndLink>
 					Have not registred yet?{' '}
 					<TextLink to='/user/register'>Register here</TextLink>

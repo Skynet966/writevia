@@ -10,7 +10,7 @@ import {
 	SignUpFormContainer,
 	TextAndLink,
 	TextLink
-} from '../Signup-form/signup-form.styles';
+} from '../signup-form/signup-form.styles';
 
 export const PasswordRecoveryCard = styled(SignUpFormContainer)`
 	margin-bottom: 32vh;
@@ -19,7 +19,7 @@ export const PasswordRecoveryCard = styled(SignUpFormContainer)`
 	}
 `;
 
-const PasswordRecovery = ({ recoverPassword }) => {
+const PasswordRecoveryEmail = ({ recoverPassword }) => {
 	const [email, setEmail] = useState('');
 	const handleChange = ({ target: { value } }) => {
 		setEmail(value);
@@ -49,4 +49,4 @@ const mapDispatchToProps = dispatch => ({
 	recoverPassword: email => dispatch(passwordRecoveryStart(email))
 });
 
-export default connect(null, mapDispatchToProps)(PasswordRecovery);
+export default connect(null, mapDispatchToProps)(PasswordRecoveryEmail);

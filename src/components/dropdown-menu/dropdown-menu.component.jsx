@@ -20,7 +20,7 @@ export const DropdownMenuCard = styled.div`
 `;
 
 export const CardHeader = styled.div`
-	padding: 15px 20px;
+	padding: 15px 20px 5px;
 `;
 export const Title = styled.h5`
 	text-align: left;

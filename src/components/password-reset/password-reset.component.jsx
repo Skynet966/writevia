@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { createStructuredSelector } from 'reselect';
 
 import styled from 'styled-components';
 import { passwordResetStart } from '../../redux/user/user.actions';
+import { selectRecovery } from '../../redux/user/user.selectors';
 import ButtonInput from '../button-input/button-input.component';
 import FormInput from '../form-input/form-input.component';
-import { PasswordRecoveryCard } from '../password-recovery/password-recovery.component';
+import { PasswordRecoveryCard } from '../password-recovery-email/password-recovery-email.component';
 
 export const PasswordResetContainer = styled(PasswordRecoveryCard)``;
 
-const PasswordReset = ({ resetPassword }) => {
+const PasswordReset = ({ resetPassword, recovery }) => {
 	const [password, setPassword] = useState('');
 	const [cpassword, setCPassword] = useState(false);
 
@@ -30,7 +33,7 @@ const PasswordReset = ({ resetPassword }) => {
 			? resetPassword(password)
 			: console.log("Password don't matched!");
 	};
-	return (
+	return recovery ? (
 		<PasswordResetContainer onSubmit={handleSubmit}>
 			<FormInput
 				type='password'
@@ -46,10 +49,15 @@ const PasswordReset = ({ resetPassword }) => {
 			/>
 			<ButtonInput type='submit' text='Reset Password' />
 		</PasswordResetContainer>
+	) : (
+		<Redirect to='/' />
 	);
 };
+const mapStateToProps = createStructuredSelector({
+	recovery: selectRecovery
+});
 const mapDispatchToProps = dispatch => ({
 	resetPassword: password => dispatch(passwordResetStart(password))
 });
 
-export default connect(null, mapDispatchToProps)(PasswordReset);
+export default connect(mapStateToProps, mapDispatchToProps)(PasswordReset);

@@ -75,6 +75,7 @@ const TopNavbar = ({
 				<MenuItem className='fa fa-bars' onClick={toggleMenu} />
 				{user ? (
 					<DropdownMenu
+						handleBlur={() => setVisibility(false)}
 						title={`Hi! ${user.name}`}
 						options={[
 							{ name: 'Profile', link: '/user/profile', icon: 'fa-user' },
