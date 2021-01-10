@@ -13,7 +13,7 @@ import {
 } from './login-form.styles';
 
 import { localSignInStart } from '../../redux/user/user.actions';
-import { TextAndLink, TextLink } from '../gnup-form/gnup-form.styles';
+import { TextAndLink, TextLink } from '../gnup-form/signup-form.styles';
 import { Form } from '../../App.styles';
 
 const LoginForm = ({ localSignIn }) => {
