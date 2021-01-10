@@ -62,8 +62,7 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
 				user: null,
 				message: null,
 				error: null,
-				info: payload.message,
-				recovery: { status: false }
+				info: payload.message
 			};
 		case UserActionTypes.ERROR_HANDLING:
 			return { ...state, message: null, info: null, error: payload };

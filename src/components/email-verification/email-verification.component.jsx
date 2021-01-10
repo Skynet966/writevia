@@ -7,31 +7,20 @@ import {
 	otpResendStart,
 	verificationStart
 } from '../../redux/user/user.actions';
-import { createStructuredSelector } from 'reselect';
-import { selectVerified } from '../../redux/user/user.selectors';
-import { Redirect } from 'react-router-dom';
 
 export const EmailVerificationCard = styled.div``;
 
-const EmailVerification = ({ verified, verification, resendVerification }) => {
-	return verified ? (
-		<Redirect to='/' />
-	) : (
-		<EmailVerificationCard>
-			<VerificationCard
-				verification={verification}
-				resendVerification={resendVerification}
-			/>
-		</EmailVerificationCard>
-	);
-};
-
-const mapStateToProps = createStructuredSelector({
-	verified: selectVerified
-});
+const EmailVerification = ({ verification, resendVerification }) => (
+	<EmailVerificationCard>
+		<VerificationCard
+			verification={verification}
+			resendVerification={resendVerification}
+		/>
+	</EmailVerificationCard>
+);
 
 const mapDispatchToProps = dispatch => ({
 	verification: code => dispatch(verificationStart(code)),
 	resendVerification: () => dispatch(otpResendStart())
 });
-export default connect(mapStateToProps, mapDispatchToProps)(EmailVerification);
+export default connect(null, mapDispatchToProps)(EmailVerification);

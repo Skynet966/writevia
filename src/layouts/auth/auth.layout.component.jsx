@@ -47,13 +47,6 @@ export const GradientHeader = styled.div`
 `;
 
 const AuthLayout = ({ user, recovery }) => {
-	recovery.status ? (
-		<Redirect to='/user/password-recovery' />
-	) : user && user.verified ? (
-		<Redirect to='/' />
-	) : (
-		<Redirect to='/user/verification' />
-	);
 	return (
 		<AuthLayoutContainer>
 			<GradientHeader />
@@ -108,7 +101,13 @@ const AuthLayout = ({ user, recovery }) => {
 								<Route
 									path='/'
 									render={() =>
-										user ? <Redirect to='/' /> : <Redirect to='/user/login' />
+										recovery.status ? (
+											<Redirect to='/user/password-recovery' />
+										) : user && user.verified ? (
+											<Redirect to='/' />
+										) : (
+											<Redirect to='/user/verification' />
+										)
 									}
 								/>
 							</Switch>
