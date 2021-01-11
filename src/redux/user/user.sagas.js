@@ -199,7 +199,7 @@ export function* onPasswordResetStart() {
 	yield takeLatest(UserActionTypes.PASSWORD_RESET_START, userPasswordReset);
 }
 
-export function* userSagas() {
+export default function* userSagas() {
 	yield all([
 		call(onlocalSignInStart),
 		call(onSignOutStart),

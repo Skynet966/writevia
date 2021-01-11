@@ -44,7 +44,7 @@ export const MenuItemsContainer = styled.div`
 `;
 
 export const MenuItem = styled.span`
-	font-size: 1.1em;
+	font-size: 20px;
 	color: ${({ theme }) => theme.HeaderText};
 	border: 0;
 	border-radius: 50%;
