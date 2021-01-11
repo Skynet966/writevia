@@ -63,11 +63,20 @@ const TopNavbar = ({
 					<MenuItem className='fa fa-search' onClick={showSearch} />
 				)}
 
-				<MenuItem
-					className='fa fa-user'
-					onMouseEnter={() => setVisibility(true)}
-					onClick={() => setVisibility(true)}
-				/>
+				{user ? (
+					<MenuItem
+						className={user.picture ? '' : 'fa fa-user'}
+						image={user.picture || ''}
+						onMouseEnter={() => setVisibility(true)}
+						onClick={() => setVisibility(!visibility)}
+					/>
+				) : (
+					<MenuItem
+						className='fa fa-user'
+						onMouseEnter={() => setVisibility(true)}
+						onClick={() => setVisibility(!visibility)}
+					/>
+				)}
 				{mode ? (
 					<MenuItem className='fa fa-moon-o moon' onClick={toggleTheme} />
 				) : (

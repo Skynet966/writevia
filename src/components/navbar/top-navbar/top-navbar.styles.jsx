@@ -48,6 +48,11 @@ export const MenuItem = styled.span`
 	color: ${({ theme }) => theme.HeaderText};
 	border: 0;
 	border-radius: 50%;
+	background: url('${({ image }) => image}');
+	width: 20px;
+	height: 20px;
+	background-position: center;
+	background-size: contain;
 	&:last-of-type {
 		@media (min-width: ${screenSize.md}) {
 			display: none;
