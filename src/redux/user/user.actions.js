@@ -128,3 +128,8 @@ export const passwordResetFailure = data => ({
 	type: UserActionTypes.PASSWORD_RESET_FALIUR,
 	payload: data
 });
+
+//CLEAR RESPONSE
+export const clearResponse = () => ({
+	type: UserActionTypes.CLEAR_RESPONSE
+});

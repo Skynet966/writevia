@@ -114,7 +114,7 @@ const AuthLayout = ({ user, recovery }) => {
 						</div>
 					</div>
 					<div className='row justify-content-center mb-3'>
-						<div className='col-md-5'>
+						<div className='col-md-8 col-lg-5'>
 							<Suspense fallback={<LoadingPage />}>
 								<Switch>
 									<Route path='/user/login' component={LoginForm} />

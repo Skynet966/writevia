@@ -66,6 +66,7 @@ const TopNavbar = ({
 				<MenuItem
 					className='fa fa-user'
 					onMouseEnter={() => setVisibility(true)}
+					onClick={() => setVisibility(true)}
 				/>
 				{mode ? (
 					<MenuItem className='fa fa-moon-o moon' onClick={toggleTheme} />

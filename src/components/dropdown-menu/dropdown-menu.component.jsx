@@ -83,7 +83,11 @@ const DropdownMenu = ({
 	handleBlur
 }) => {
 	return (
-		<DropdownMenuCard onMouseLeave={handleBlur} visibility={visibility}>
+		<DropdownMenuCard
+			onMouseLeave={handleBlur}
+			onBlur={handleBlur}
+			visibility={visibility}
+		>
 			<CardHeader>
 				<Title>{title}</Title>
 			</CardHeader>

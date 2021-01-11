@@ -10,8 +10,16 @@ const INITIAL_STATE = {
 
 const userReducer = (state = INITIAL_STATE, { type, payload }) => {
 	switch (type) {
-		case UserActionTypes.SIGN_IN_SUCCESS:
+		// return {
+		// 	...state,
+		// 	error: null,
+		// 	info: null,
+		// 	message: null,
+		// 	currentUser: payload.user,
+		// 	recovery: { status: false }
+		// };
 		case UserActionTypes.GET_CURRENT_USER_SUCCESS:
+		case UserActionTypes.SIGN_IN_SUCCESS:
 		case UserActionTypes.SIGN_UP_SUCCESS:
 		case UserActionTypes.EMAIL_VERIFICATION_SUCCESS:
 		case UserActionTypes.PASSWORD_RESET_SUCCESS:
@@ -48,8 +56,9 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
 				info: null,
 				message: payload.message
 			};
-		case UserActionTypes.SIGN_IN_FAILURE:
 		case UserActionTypes.GET_CURRENT_USER_FAILURE:
+			return { ...state };
+		case UserActionTypes.SIGN_IN_FAILURE:
 		case UserActionTypes.SIGN_OUT_FAILURE:
 		case UserActionTypes.SIGN_UP_FAILURE:
 		case UserActionTypes.OTP_RESEND_FAILURE:
@@ -66,6 +75,8 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
 			};
 		case UserActionTypes.ERROR_HANDLING:
 			return { ...state, message: null, info: null, error: payload };
+		case UserActionTypes.CLEAR_RESPONSE:
+			return { ...state, message: null, info: null, error: null };
 		default:
 			return state;
 	}
