@@ -2,8 +2,8 @@ import React from 'react';
 
 import { AboutPageContainer } from './about.page.styles';
 
-import DescriptionCard from '../../components/description-card/description-card.component';
-import PageHeader from '../../components/page-header/page-header.component';
+import DescriptionCard from '../../../components/description-card/description-card.component';
+import PageHeader from '../../../components/page-header/page-header.component';
 
 const AboutPage = () => (
 	<AboutPageContainer>

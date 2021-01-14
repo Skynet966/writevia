@@ -19,4 +19,6 @@ export const selectThemeMode = createSelector(
 	theme => theme.light
 );
 
+export const selectSideNav = createSelector([selectApp], app => app.sideNav);
+
 export const selectMenu = createSelector([selectApp], app => app.menu);

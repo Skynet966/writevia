@@ -6,22 +6,22 @@ import { BasicLayoutContainer } from './base.layout.styles';
 import Header from '../../containers/header/header.container';
 import LoadingPage from '../../components/loading-page/loading-page.component';
 import Footer from '../../containers/footer/footer.component';
-import CreatePostPage from '../../pages/create-post-page/create-post-page.page';
+import CreatePostPage from '../../pages/dashboard/create-post-page/create-post-page.page';
 
 const HomePage = lazy(() =>
-	import('../../pages/home-page/home-page.component')
+	import('../../pages/base/home-page/home-page.component')
 );
 const BlogsPage = lazy(() =>
-	import('../../pages/blogs-page/blogs-page.component')
+	import('../../pages/base/blogs-page/blogs-page.component')
 );
 const ContactPage = lazy(() =>
-	import('../../pages/contact-page/contact-page.component')
+	import('../../pages/base/contact-page/contact-page.component')
 );
 const TeamPage = lazy(() =>
-	import('../../pages/team-page/team-page.component')
+	import('../../pages/base/team-page/team-page.component')
 );
 const AboutPage = lazy(() =>
-	import('../../pages/about-page/about-page.component')
+	import('../../pages/base/about-page/about-page.component')
 );
 
 const BaseLayout = () => (

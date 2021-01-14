@@ -2,11 +2,11 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import DescriptionCard from '../../components/description-card/description-card.component';
-import SocialWidget from '../../components/social-widget/social-widget.component';
-import CategoryWidget from '../../components/category-widget/category-widget.component';
+import DescriptionCard from '../../../components/description-card/description-card.component';
+import SocialWidget from '../../../components/social-widget/social-widget.component';
+import CategoryWidget from '../../../components/category-widget/category-widget.component';
 
-import PostPreviewCard from '../../components/post-preview-card/post-preview-card.component';
+import PostPreviewCard from '../../../components/post-preview-card/post-preview-card.component';
 
 export const HomePageContainer = styled.div``;
 

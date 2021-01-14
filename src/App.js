@@ -10,6 +10,7 @@ import { selectTheme } from './redux/app/app.selectors';
 
 import BaseLayout from './layouts/base/base.layout.component';
 import AuthLayout from './layouts/auth/auth.layout.component';
+import DashboardLayout from './layouts/dashboard/dashboard.layout.component.jsx';
 import { clearResponse, getCurrentUserStart } from './redux/user/user.actions';
 import { selectResponse } from './redux/user/user.selectors';
 
@@ -42,6 +43,7 @@ const App = ({ theme, res, clearResponse, getCurrentUser }) => {
 			<AppContainer>
 				<Switch>
 					<Route path='/user' component={AuthLayout} />
+					<Route path='/dashboard' component={DashboardLayout} />
 					<Route exact path='*' component={BaseLayout} />
 				</Switch>
 			</AppContainer>

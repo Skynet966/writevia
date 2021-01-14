@@ -16,3 +16,6 @@ export const toggleTheme = () => ({
 export const toggleMenu = () => ({
 	type: AppActionTypes.TOGGLE_MENU
 });
+export const toggleSideNav = () => ({
+	type: AppActionTypes.TOGGLE_SIDE_NAV
+});

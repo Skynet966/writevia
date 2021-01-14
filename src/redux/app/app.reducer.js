@@ -6,7 +6,8 @@ const INITIAL_STATE = {
 	showSearchbar: false,
 	searchText: null,
 	theme: lightTheme,
-	menu: false
+	menu: false,
+	sideNav: false
 };
 
 const appReducer = (state = INITIAL_STATE, { type, payload }) => {
@@ -22,6 +23,8 @@ const appReducer = (state = INITIAL_STATE, { type, payload }) => {
 			return { ...state, theme: lightTheme };
 		case AppActionTypes.TOGGLE_MENU:
 			return { ...state, menu: !state.menu };
+		case AppActionTypes.TOGGLE_SIDE_NAV:
+			return { ...state, sideNav: !state.sideNav };
 		default:
 			return state;
 	}

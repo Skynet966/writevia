@@ -17,6 +17,7 @@ export const lightTheme = {
 	MutedText: '#6c757d',
 	LineFX: '#e8eaed',
 	Shadow: '#343a40',
+	Selector: 'ghostwhite',
 	light: true
 };
 export const darkTheme = {
@@ -32,6 +33,7 @@ export const darkTheme = {
 	MutedText: '#6c757d',
 	LineFX: '#25253d',
 	Shadow: '#6c757d',
+	Selector: '#f8f8ff24',
 	light: false
 };
 export const color = {

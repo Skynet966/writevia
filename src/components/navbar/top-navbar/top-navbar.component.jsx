@@ -88,8 +88,12 @@ const TopNavbar = ({
 						handleBlur={() => setVisibility(false)}
 						title={`Hi! ${user.name}`}
 						options={[
-							{ name: 'Profile', link: '/user/profile', icon: 'fa-user' },
-							{ name: 'Settings', link: '/user/settings', icon: 'fa-cog' }
+							{ name: 'Profile', link: '/dashboard/profile', icon: 'fa-user' },
+							{
+								name: 'Add Post',
+								link: '/dashboard/create-post',
+								icon: 'fa-file-o'
+							}
 						]}
 						fOption='Logout'
 						fIcon='fa-sign-out'

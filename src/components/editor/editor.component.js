@@ -28,16 +28,12 @@ import Underline from '@editorjs/underline';
 
 import styled from 'styled-components';
 
-export const EditorContainer = styled.div`
-	border: solid 2px black;
-	padding: 30px 20px;
-	text-align: -webkit-auto;
-`;
+export const EditorContainer = styled.div``;
 
 const Editor = () => {
 	useEffect(() => {
 		new EditorJS({
-			placeholder: 'Write you post body here',
+			placeholder: 'Let`s write an awesome story!',
 			holder: 'editorjs',
 			tools: {
 				header: {
@@ -149,6 +145,9 @@ const Editor = () => {
 				code: CodeTool,
 				delimiter: Delimiter,
 				list: List
+			},
+			onReady: () => {
+				console.log('Editor.js is ready to work!');
 			}
 		});
 	}, []);

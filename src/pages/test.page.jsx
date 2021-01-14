@@ -1,18 +1,6 @@
 import React from 'react';
-import LoginForm from '../components/login-form/login-form.component';
-import SignUpForm from '../components/gnup-form/signup-form.component';
+import SideNavbar from '../components/side-navbar/side-navbar.component';
 
-const TestPage = () => (
-	<div className='container'>
-		<div className='row py-5'>
-			<div className='col-md-8 col-lg-4'>
-				<LoginForm />
-			</div>
-			<div className='col-md-4'>
-				<SignUpForm />
-			</div>
-		</div>
-	</div>
-);
+const TestPage = () => <SideNavbar></SideNavbar>;
 
 export default TestPage;

@@ -36,6 +36,7 @@
     "editorjs-paragraph-with-alignment": "^2.0.0",
     "editorjs-social-post-plugin": "^1.0.0",
     "editorjs-table": "^1.4.7",
+    "noty": "^3.2.0-beta",
     "react": "^17.0.1",
     "react-content-loader": "^5.1.4",
     "react-dom": "^17.0.1",

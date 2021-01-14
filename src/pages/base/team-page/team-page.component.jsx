@@ -1,7 +1,7 @@
 import React from 'react';
 
-import DescriptionCard from '../../components/description-card/description-card.component';
-import PageHeader from '../../components/page-header/page-header.component';
+import DescriptionCard from '../../../components/description-card/description-card.component';
+import PageHeader from '../../../components/page-header/page-header.component';
 
 import { TeamPageContainer } from './team-page.styles';
 
