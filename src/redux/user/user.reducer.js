@@ -10,14 +10,6 @@ const INITIAL_STATE = {
 
 const userReducer = (state = INITIAL_STATE, { type, payload }) => {
 	switch (type) {
-		// return {
-		// 	...state,
-		// 	error: null,
-		// 	info: null,
-		// 	message: null,
-		// 	currentUser: payload.user,
-		// 	recovery: { status: false }
-		// };
 		case UserActionTypes.GET_CURRENT_USER_SUCCESS:
 		case UserActionTypes.SIGN_IN_SUCCESS:
 		case UserActionTypes.SIGN_UP_SUCCESS:

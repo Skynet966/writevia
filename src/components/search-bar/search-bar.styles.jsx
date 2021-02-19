@@ -8,10 +8,13 @@ export const SearchBarContainer = styled.div`
 	background: ${({ theme }) => theme.Header};
 	display: flex;
 	place-content: center;
-	transform: translateY(${({ show }) => (show ? 0 : -110)}%);
+	transform: translateY(${({ show }) => (show ? 100 : 0)}%);
 	box-shadow: 0 6px 4px -5px rgba(0, 0, 0, 0.7);
 	border-radius: 0px 0px 20px 20px;
 	transition: transform 0.8s ease-in-out;
+	@media (max-width: ${screenSize.sm}) {
+		transform: translateY(${({ show }) => (show ? 0 : -100)}%);
+	}
 `;
 export const Search = styled.div`
 	padding: 15px;

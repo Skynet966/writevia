@@ -37,9 +37,3 @@ export const postUpdationSuccess = success => ({
 	type: PostActionsTypes.SAVE_POST_CONTENT_SUCCESS,
 	payload: success
 });
-
-//GENTRIC ACTION TEMPLATE
-export const n = v => ({
-	type,
-	payload
-});

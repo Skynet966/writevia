@@ -4,6 +4,7 @@
 	top: 0;
 	z-index: 1000;
 	box-shadow: 0 6px 4px -5px rgba(0, 0, 0, 0.7);
+	height: 0;
 }
 
 .header__fx {

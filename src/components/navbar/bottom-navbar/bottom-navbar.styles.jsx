@@ -2,37 +2,36 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { fadeIn, screenSize } from '../../../App.styles';
 
-export const BottomNavbarContainer = styled.nav`
-	display: flex;
-	background: ${({ theme }) => theme.Header};
-	place-content: center;
-	border-bottom: 1px solid ${({ theme }) => theme.LineFX};
-	transition: transform 1s linear;
-	@media (max-width: ${screenSize.sm}) {
-		display: ${({ menu }) => (menu ? 'flex' : 'none')};
-		height: 95vh;
-	}
-`;
 export const NavLinksContainer = styled.ul`
+	background: ${({ theme }) => theme.Header};
 	display: flex;
-	margin: 20px 0;
+	justify-content: center;
+	padding: 20px 0;
 	gap: 40px;
 	list-style: none;
-	transition: all 1.5s linear;
 	@media (max-width: ${screenSize.sm}) {
+		padding: 0 25px;
+		transition: all 0.5s ease-in-out;
 		flex-flow: column;
 		gap: 0;
 		margin: 0;
-		place-content: space-evenly;
+		height: 95vh;
+		place-content: start;
+		pointer-events: all;
+		overflow-y: auto;
+		width: 45%;
+		text-align: end;
+		transform: translateX(${({ menu }) => (menu ? '122%' : '222%')});
+		box-shadow: -5px 0 5px -5px rgba(0, 0, 0, 0.7);
 	}
 `;
 export const NavLinks = styled.li`
 	font-weight: 600;
 	animation: ${fadeIn} 1s linear;
 	@media (max-width: ${screenSize.sm}) {
-		width: 95vw;
+		transition: all 0.5s ease-in;
+		padding: 40px 5px;
 		border-bottom: 1px solid ${({ theme }) => theme.LineFX};
-		height: 11%;
 	}
 `;
 
@@ -40,8 +39,4 @@ export const NavLinkItem = styled(NavLink)`
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
 	outline: none;
-	@media (max-width: ${screenSize.sm}) {
-		padding: 5px;
-		font-size: larger;
-	}
 `;

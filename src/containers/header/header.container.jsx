@@ -8,11 +8,11 @@ import './header.styles.css';
 
 const Header = () => (
 	<header className='header-container'>
-		<div className='header'>
+		<nav className='header'>
 			<TopNavbar />
-			<BottomNavbar />
 			<SearchBar />
-		</div>
+			<BottomNavbar />
+		</nav>
 		<div className='header__fx' />
 	</header>
 );
